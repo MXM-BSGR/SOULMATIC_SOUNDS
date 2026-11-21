@@ -1,7 +1,50 @@
     /* ============================================================== */
     /* MEDIA QUERRIES */
     /* ============================================================== */
+    @media screen and (width >=1440px) {
+        .HeroSection {
+            width: 1440px;
+            height: 32rem;
+            margin: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
+        .ProductCategoryWrapper {
+            position: relative;
+            width: 1440px;
+        }
+
+        .ProductCategoryHeading {
+            width: 100dvw;
+        }
+
+        .MobileShopingCart {
+            position: absolute;
+            top: 6.75rem;
+            right: 0;
+            width: 27.1875rem;
+            height: 50rem;
+
+        }
+    }
+
+    @media screen and (width >=481px) and (width <=1440px) {
+
+        .ProductCategoryWrapper {
+            position: relative;
+        }
+
+        .MobileShopingCart {
+            position: absolute;
+            top: 6.75rem;
+            right: 0;
+            width: 27.1875rem;
+            height: 50rem;
+
+        }
+    }
 
     /* ============================================================== */
 
