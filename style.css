@@ -452,6 +452,59 @@
     /* #endregion */
     /* ------------------------------------------------------------- */
 
+    /* #region  ORDER CONFIRMATION MODAL  */
+
+    .SentConfirmationModal {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 21.25rem;
+        padding: 2rem 2rem 2.5rem 2rem;
+        background-color: rgba(54, 53, 52, 1);
+        text-align: center;
+        border-radius: 1.875rem;
+    }
+
+    .ConfirmationModalCloseButton {
+        all: unset;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-image: url(./assets/icons/close-icon.svg);
+    }
+
+    .DownloadQRCode {
+        width: 10rem;
+    }
+
+    .ConfirmationModalHeading {
+        color: blueviolet;
+        font-size: 2.25rem;
+    }
+
+    .ConfirmationModalSubheading {
+        padding: 1.625rem 0 1rem 0;
+        color: aliceblue;
+    }
+
+    .ConfirmationInfoDivider {
+        color: white;
+
+        font-weight: 700;
+
+        border-radius: 0.25rem;
+    }
+
+    .MailSentIcon {
+        width: 3rem;
+    }
+
+    /* #endregion */
+    /* ------------------------------------------------------------- */
+
     /* #region   FOOTER  */
     .MainFooter {
         display: flex;
