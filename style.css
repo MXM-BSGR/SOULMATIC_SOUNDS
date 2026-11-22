@@ -10,12 +10,13 @@
     /* #region   HEADER  */
     .MainHeader {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 100%;
         height: 5rem;
         background-color: rgb(0, 0, 0);
-        padding: 1.125rem 1rem;
+        /* padding: 1.125rem 1rem; */
+        padding: 0.5rem 1rem;
     }
 
     .HeaderLogo {
@@ -24,7 +25,20 @@
     }
 
     .HeaderLettering {
-        height: 2.5rem;
+        height: 3.5rem;
+    }
+
+    .MenuButton {
+        all: unset;
+        display: none;
+        width: 2rem;
+        height: 2rem;
+
+        background-image: url(./assets/icons/burger-menu-button.svg);
+        background-size: contain;
+        cursor: pointer;
+
+
     }
 
     /* #endregion */
@@ -119,22 +133,46 @@
         background-color: blueviolet;
         justify-content: center;
         align-items: center;
-        border-top: 0.25rem solid violet;
+        border-top: 0.25rem solid rgb(70, 227, 255);
         margin-top: 3rem;
+        z-index: 3;
     }
 
     .CategoryName {
         font-size: 2rem;
+        z-index: 3;
+        color: rgb(70, 227, 255);
+
     }
 
-    .CategoryIcon {
+    .Category0Icon {
         position: absolute;
-        top: -3rem;
-        width: 3.75rem;
-        height: 3.75rem;
+        top: -4rem;
+        /* width: 3.75rem;
+        height: 3.75rem; */
+        width: 8rem;
+        height: 8rem;
         background-color: blueviolet;
         border-radius: 50%;
-        border: 0.25rem solid violet;
+        /* border: 0.125rem solid violet; */
+        outline: 0.25rem solid violet;
+        overflow: visible;
+        z-index: 1;
+    }
+
+    .Category1Icon {
+        position: absolute;
+        top: -4rem;
+        /* width: 3.75rem;
+        height: 3.75rem; */
+        width: 8rem;
+        height: 8rem;
+        background-color: blueviolet;
+        border-radius: 50%;
+        /* border: 0.125rem solid violet; */
+        outline: 0.25rem solid violet;
+        overflow: visible;
+        z-index: 1;
     }
 
     .ProductCard {
