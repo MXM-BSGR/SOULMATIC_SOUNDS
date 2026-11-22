@@ -31,6 +31,14 @@
 
     @media screen and (width >=481px) and (width <=1440px) {
 
+        .MainHeader {
+            justify-content: space-between;
+        }
+
+        .MenuButton {
+            display: block;
+        }
+
         .ProductCategoryWrapper {
             position: relative;
         }
