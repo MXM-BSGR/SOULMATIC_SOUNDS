@@ -118,14 +118,40 @@
         width: 100%;
     }
 
-    .ProductCategoryWrapper {
+
+
+    .ProductCategorysWrapper {
         display: flex;
         width: 100%;
         flex-direction: column;
         align-items: center;
     }
 
+    .AllCategoriesColumn {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        align-items: center;
+    }
+
     .ProductCategoryHeading {
+        overflow: visible;
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 3.75rem;
+        background-color: blueviolet;
+        justify-content: center;
+        align-items: center;
+        border-top: 0.25rem solid rgb(70, 227, 255);
+        margin-top: 3rem;
+        z-index: 3;
+    }
+
+    .ProductCategory2Heading {
+        overflow: visible;
         position: relative;
         display: flex;
         width: 100%;
@@ -139,6 +165,13 @@
     }
 
     .CategoryName {
+        font-size: 2rem;
+        z-index: 3;
+        color: rgb(70, 227, 255);
+
+    }
+
+    .Category2Name {
         font-size: 2rem;
         z-index: 3;
         color: rgb(70, 227, 255);
@@ -175,13 +208,25 @@
         z-index: 1;
     }
 
+
+
+    .CategoryCardWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block: 2rem;
+        padding: 2rem;
+    }
+
     .ProductCard {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        width: 21rem;
+        width: 100%;
         height: 20.9375rem;
-        margin: 1.25rem;
+        /* margin: 1.25rem; */
+        margin-block: 1.25rem;
         background-color: rgb(192, 163, 219);
         padding: 0.625rem;
         border-radius: 0.75rem;
@@ -243,7 +288,7 @@
     /* ------------------------------------------------------------- */
     /* #region  MOBILE SHOPING CART   */
     .MobileShopingCart {
-        display: flex;
+        display: none;
         position: relative;
         flex-direction: column;
         align-items: center;
@@ -253,6 +298,7 @@
         background-color: rgb(26, 26, 26);
         border-radius: 1.75rem 1.75rem 0 0;
         padding: 2.375rem 1.375rem;
+        z-index: 5;
     }
 
     .ShopingCartIcon {
