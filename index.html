@@ -61,63 +61,8 @@
         </section>
 
         <section id="idOrderArea" class="OrderArea">
-            <section id="idProductCategoryWrapper" class="ProductCategoryWrapper">
-                <header id="idProductCategoryHeading" class="ProductCategoryHeading">
-                    <h2 id="idCategoryName" class="CategoryName">Slam & Beatdown Metal</h2>
-                    <img id="idCategory0Icon" class="Category0Icon" src="./assets/icons/beatdown.svg" alt="alt">
+            <div id="idProductCategorysWrapper" class="ProductCategorysWrapper">
 
-                </header>
-                <article id="idProductCard0" class="ProductCard">
-                    <button type="button" id="idProductCard0PreviewWrapper" class="ProductCardPreviewWrapper">
-                        <img id="idProductCard0ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay"
-                            src="./assets/icons/play-button.svg" alt="play">
-                    </button>
-                    <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                        <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
-                        <p id="idProduct0Content" class="ProductContent">
-                            2x Ping Snare One-Shots,
-                            1x Sub-Drop 808 Boom,
-                            3x Chug Guitar Stems (DI & Amped)
-                        </p>
-                    </div>
-                    <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                        <p id="idProduct0Price" class="ProductPrice">
-                            <b>12.90 €</b>
-                        </p>
-                        <button type="button" id="idAdd0ToShopingCartButton0" class="AddToShopingCartButton">
-                            Add to Shoping Cart</button>
-                        <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
-                            Added $license<br>
-                            $Format</button>
-                    </div>
-
-
-                </article>
-                <article id="idProductCard1" class="ProductCard">
-                    <button type="button" id="idProductCard1PreviewWrapper" class="ProductCardPreviewWrapper">
-                        <img id="idProductCard1ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay"
-                            src="./assets/icons/play-button.svg" alt="play">
-                    </button>
-                    <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                        <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
-                        <p id="idProduct1Content" class="ProductContent">
-                            4x Raw Kick & Snare Hits
-                            1x Trashy China Cymbal
-                            2x Downtuned Bass Riffs
-                        </p>
-                    </div>
-                    <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                        <p id="idProduct1Price" class="ProductPrice">
-                            <b>14.90 €</b>
-                        </p>
-                        <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
-                            Add to Shoping Cart</button>
-                    </div>
-
-
-                </article>
-
-                <!-- #region  MOBILE SHOPING CART -->
                 <div id="idMobileShopingCart" class="MobileShopingCart DesktopShopingCart">
                     <button type="button" id="idMobileDialogCloseBtn" class="MobileDialogCloseBtn"></button>
                     <h2 id="idMobileShopingCartHeading" class="MobileShopingCartHeading"> Ur Shoping Cart</h2>
@@ -244,80 +189,162 @@
                         <b>Buy now (x,xx €)</b>
                     </button>
                 </div>
+                <div class="AllCategoriesColumn">
+                    <div id="idCategoryCardWrapper" class="CategoryCardWrapper">
+                        <header id="idProductCategoryHeading" class="ProductCategoryHeading">
+                            <h2 id="idCategoryName" class="CategoryName">Slam & Beatdown Metal</h2>
+                            <img id="idCategory0Icon" class="Category0Icon" src="./assets/icons/beatdown.svg" alt="alt">
 
-                <!-- #endregion -->
-                <!-- ------------------------------------------------------------- -->
-            </section>
+                        </header>
 
-            <!-- #region  ORDER CONFIRMED MODAL  -->
-            <div id="idSentConfirmationModal" class="SentConfirmationModal">
-                <button type="button" id="idConfirmationModalCloseButton" class="ConfirmationModalCloseButton"></button>
-                <img id="idDownloadQRCode" class="DownloadQRCode" src="./assets/icons/qr-code.svg" alt="mail sent icon">
-                <h2 id="idConfirmationModalHeading" class="ConfirmationModalHeading">Order confirmed!</h2>
-                <p id="idConfirmationModalSubheading" class="ConfirmationModalSubheading">Download via QR-Code<br>
-                    <span id="idConfirmationInfoDivider" class="ConfirmationInfoDivider">or</span><br>
-                    check your email, we sent you a Download-Link!
-                </p>
-                <img id="idMailSentIcon" class="MailSentIcon" src="./assets/icons/marked-email.svg"
-                    alt="mail sent icon"><br>
+                        <div id="idProductCardsWrapper" class="ProductCardsWrapper">
+                            <article id="idProductCard0" class="ProductCard">
+                                <button type="button" id="idProductCard0PreviewWrapper"
+                                    class="ProductCardPreviewWrapper">
+                                    <img id="idProductCard0ImagePlayButtonOverlay"
+                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
+                                        alt="play">
+                                </button>
+                                <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
+                                    <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
+                                    <p id="idProduct0Content" class="ProductContent">
+                                        2x Ping Snare One-Shots,
+                                        1x Sub-Drop 808 Boom,
+                                        3x Chug Guitar Stems (DI & Amped)
+                                    </p>
+                                </div>
+                                <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
+                                    <p id="idProduct0Price" class="ProductPrice">
+                                        <b>12.90 €</b>
+                                    </p>
+                                    <button type="button" id="idAdd0ToShopingCartButton0"
+                                        class="AddToShopingCartButton">
+                                        Add to Shoping Cart</button>
+                                    <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
+                                        Added $license<br>
+                                        $Format</button>
+                                </div>
 
+
+                            </article>
+                            <article id="idProductCard1" class="ProductCard">
+                                <button type="button" id="idProductCard1PreviewWrapper"
+                                    class="ProductCardPreviewWrapper">
+                                    <img id="idProductCard1ImagePlayButtonOverlay"
+                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
+                                        alt="play">
+                                </button>
+                                <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
+                                    <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
+                                    <p id="idProduct1Content" class="ProductContent">
+                                        4x Raw Kick & Snare Hits
+                                        1x Trashy China Cymbal
+                                        2x Downtuned Bass Riffs
+                                    </p>
+                                </div>
+                                <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
+                                    <p id="idProduct1Price" class="ProductPrice">
+                                        <b>14.90 €</b>
+                                    </p>
+                                    <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
+                                        Add to Shoping Cart</button>
+                                </div>
+
+
+                            </article>
+                        </div>
+                    </div>
+                    <div id="idCategoryCardWrapper" class="CategoryCardWrapper">
+                        <header id="idProductCategory2Heading" class="ProductCategory2Heading">
+                            <h2 id="idCategory2Name" class="Category2Name">Slam & Beatdown Metal</h2>
+                            <img id="idCategory1Icon" class="Category1Icon" src="./assets/icons/beatdown.svg" alt="alt">
+
+                        </header>
+
+                        <div id="idProductCardsWrapper" class="ProductCardsWrapper">
+                            <article id="idProductCard0" class="ProductCard">
+                                <button type="button" id="idProductCard0PreviewWrapper"
+                                    class="ProductCardPreviewWrapper">
+                                    <img id="idProductCard0ImagePlayButtonOverlay"
+                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
+                                        alt="play">
+                                </button>
+                                <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
+                                    <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
+                                    <p id="idProduct0Content" class="ProductContent">
+                                        2x Ping Snare One-Shots,
+                                        1x Sub-Drop 808 Boom,
+                                        3x Chug Guitar Stems (DI & Amped)
+                                    </p>
+                                </div>
+                                <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
+                                    <p id="idProduct0Price" class="ProductPrice">
+                                        <b>12.90 €</b>
+                                    </p>
+                                    <button type="button" id="idAdd0ToShopingCartButton0"
+                                        class="AddToShopingCartButton">
+                                        Add to Shoping Cart</button>
+                                    <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
+                                        Added $license<br>
+                                        $Format</button>
+                                </div>
+
+
+                            </article>
+                            <article id="idProductCard1" class="ProductCard">
+                                <button type="button" id="idProductCard1PreviewWrapper"
+                                    class="ProductCardPreviewWrapper">
+                                    <img id="idProductCard1ImagePlayButtonOverlay"
+                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
+                                        alt="play">
+                                </button>
+                                <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
+                                    <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
+                                    <p id="idProduct1Content" class="ProductContent">
+                                        4x Raw Kick & Snare Hits
+                                        1x Trashy China Cymbal
+                                        2x Downtuned Bass Riffs
+                                    </p>
+                                </div>
+                                <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
+                                    <p id="idProduct1Price" class="ProductPrice">
+                                        <b>14.90 €</b>
+                                    </p>
+                                    <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
+                                        Add to Shoping Cart</button>
+                                </div>
+
+
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            <!-- #region  MOBILE SHOPING CART -->
 
             <!-- #endregion -->
             <!-- ------------------------------------------------------------- -->
+            </div>
 
-            <section id="idProductCategoryWrapper" class="ProductCategoryWrapper">
-
-                <header id="idProductCategoryHeading" class="ProductCategoryHeading">
-                    <h2 id="idCategoryName" class="CategoryName">Underground HipHop</h2>
-                    <img id="idCategory1Icon" class="Category1Icon" src="./assets/icons/phonk.svg" alt="alt">
-                </header>
-
-                <article id="idProductCard0" class="ProductCard">
-                    <button type="button" id="idProductCard0PreviewWrapper" class="ProductCardPreviewWrapper">
-                        <img id="idProductCard0ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay"
-                            src="./assets/icons/play-button.svg" alt="play">
-                    </button>
-                    <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                        <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
-                        <p id="idProduct0Content" class="ProductContent">
-                            2x Ping Snare One-Shots,
-                            1x Sub-Drop 808 Boom,
-                            3x Chug Guitar Stems (DI & Amped)
-                        </p>
-                    </div>
-                    <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                        <p id="idProduct0Price" class="ProductPrice">
-                            <b>12.90 €</b>
-                        </p>
-                        <button type="button" id="idAdd0ToShopingCartButton0" class="AddToShopingCartButton">
-                            Add to Shoping Cart</button>
-                    </div>
-                </article>
-
-                <article id="idProductCard1" class="ProductCard">
-                    <button type="button" id="idProductCard1PreviewWrapper" class="ProductCardPreviewWrapper">
-                        <img id="idProductCard1ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay"
-                            src="./assets/icons/play-button.svg" alt="play">
-                    </button>
-                    <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                        <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
-                        <p id="idProduct1Content" class="ProductContent">
-                            4x Raw Kick & Snare Hits
-                            1x Trashy China Cymbal
-                            2x Downtuned Bass Riffs
-                        </p>
-                    </div>
-                    <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                        <p id="idProduct1Price" class="ProductPrice">
-                            <b>14.90 €</b>
-                        </p>
-                        <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
-                            Add to Shoping Cart</button>
-                    </div>
-                </article>
-            </section>
         </section>
+
+        <!-- #region  ORDER CONFIRMED MODAL  -->
+        <!-- <dialog id="idSentConfirmationModal" class="SentConfirmationModal">
+            <button type="button" id="idConfirmationModalCloseButton" class="ConfirmationModalCloseButton"></button>
+            <img id="idDownloadQRCode" class="DownloadQRCode" src="./assets/icons/qr-code.svg" alt="mail sent icon">
+            <h2 id="idConfirmationModalHeading" class="ConfirmationModalHeading">Order confirmed!</h2>
+            <p id="idConfirmationModalSubheading" class="ConfirmationModalSubheading">Download via QR-Code<br>
+                <span id="idConfirmationInfoDivider" class="ConfirmationInfoDivider">or</span><br>
+                check your email, we sent you a Download-Link!
+            </p>
+            <img id="idMailSentIcon" class="MailSentIcon" src="./assets/icons/marked-email.svg"
+                alt="mail sent icon"><br>
+
+        </dialog> -->
+
+        <!-- #endregion -->
+        <!-- ------------------------------------------------------------- -->
     </main>
     <!-- #endregion -->
     <!-- ------------------------------------------------------------- -->
