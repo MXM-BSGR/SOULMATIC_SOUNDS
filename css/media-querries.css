@@ -65,7 +65,7 @@
             background-size: cover;
         }
 
-        .AllCategoriesColumn {
+        .AllCategories {
             display: flex;
             flex: 1;
             width: 100%;
