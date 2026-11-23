@@ -1,9 +1,10 @@
     /* ============================================================== */
     /* MEDIA QUERRIES */
     /* ============================================================== */
+    /* #region WIDE */
     @media screen and (width >=1440px) {
         .HeroSection {
-            width: 1440px;
+            width: 100%;
             height: 32rem;
             margin: 0;
             background-position: center;
@@ -11,25 +12,145 @@
             background-size: cover;
         }
 
-        .ProductCategoryWrapper {
-            position: relative;
-            width: 1440px;
-        }
+        .ProductCategorysWrapper {}
 
         .ProductCategoryHeading {
-            width: 100dvw;
+            width: 100%;
+        }
+
+        .CategoryCardWrapper {
+            display: flex;
+
+            height: 200dvh;
         }
 
         .MobileShopingCart {
-            position: absolute;
-            top: 6.75rem;
-            right: 0;
+            position: sticky;
+            top: 0;
             width: 27.1875rem;
             height: 50rem;
         }
+
+        .ProductCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 20.9375rem;
+            /* margin: 1.25rem; */
+            margin-block: 1.25rem;
+            background-color: rgb(192, 163, 219);
+
+            border-radius: 0.75rem;
+            gap: 0.5rem;
+        }
+
     }
 
-    @media screen and (width >=481px) and (width <=1440px) {
+
+
+    /* #endregion */
+    /* ------------------------------------------------------------- */
+
+    /* #region DESKTOP */
+
+    @media screen and (width >=768px) and (width <=1440px) {
+
+        .HeroSection {
+            width: 100%;
+            height: 32rem;
+            margin: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .AllCategoriesColumn {
+            display: flex;
+            flex: 1;
+            width: 100%;
+
+
+        }
+
+        .ProductCategorysWrapper {
+
+            position: relative;
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            gap: 2rem;
+
+            width: 100%;
+        }
+
+
+        .ProductCategoryHeading {
+            position: absolute;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            padding-left: 5rem;
+            gap: 2rem;
+
+            top: 0;
+            left: 0;
+
+        }
+
+        .Category0Icon {
+            position: static;
+        }
+
+        .Category1Icon {
+            position: static;
+        }
+
+        .ProductCategory2Heading {
+            overflow: visible;
+            width: 100%;
+            /* margin-right: calc(-27.1875rem - 2rem); */
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            padding-left: 5rem;
+            gap: 2rem;
+        }
+
+        .CategoryCardWrapper {
+            overflow: visible;
+            display: flex;
+            width: 100%;
+            /* flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-start; */
+            height: 200dvh;
+
+
+        }
+
+        .ProductCardsWrapper {
+
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-top: 7rem;
+        }
+
+        .ProductCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 20.9375rem;
+            /* margin: 1.25rem; */
+            margin-block: 1.25rem;
+            background-color: rgb(192, 163, 219);
+
+            border-radius: 0.75rem;
+            gap: 0.5rem;
+        }
+
+
 
         .MainHeader {
             justify-content: space-between;
@@ -39,18 +160,61 @@
             display: block;
         }
 
-        .ProductCategoryWrapper {
-            position: relative;
-        }
+
 
         .MobileShopingCart {
-            position: absolute;
-            top: 6.75rem;
-            right: 0;
+            display: flex;
+            position: sticky;
+            margin-top: 6.75rem;
+            top: 0;
             width: 27.1875rem;
             height: 50rem;
         }
     }
+
+    /* #endregion */
+    /* ------------------------------------------------------------- */
+
+    /* #region TABLET */
+
+    @media screen and (width >=481px) and (width <=767px) {
+
+        .CategoryCardWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ProductCardsWrapper {
+            width: 100%;
+            padding: 3rem;
+        }
+
+        .ProductCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 20.9375rem;
+            /* margin: 1.25rem; */
+            margin-block: 1.25rem;
+            background-color: rgb(192, 163, 219);
+
+            border-radius: 0.75rem;
+            gap: 0.5rem;
+        }
+
+
+    }
+
+    /* #endregion */
+    /* ------------------------------------------------------------- */
+
+    /* #region SMALLEST */
+
+    /* #endregion */
+    /* ------------------------------------------------------------- */
 
     /* ============================================================== */
 
