@@ -18,7 +18,7 @@ function getCategoryTemplate(i) {
                 <h2 id="idCategory_${i}_Name" class="CategoryName">
                     ${loopCatalog[i].category}
                 </h2>
-                <img id="idCategory_${i}_Icon" class="Category_${i}_Icon" src="./assets/icons/beatdown.svg" alt="alt">
+                <img id="idCategory_${i}_Icon" class="Category_${i}_Icon" src="${loopCatalog[i].iconPath}" alt="alt">
 
             </header>
 
