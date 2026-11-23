@@ -13,46 +13,38 @@ const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
 
 function getCategoryTemplate(i) {
     return html`
-        <div id="idCategoryCardWrapper" class="CategoryCardWrapper">
+        <div id="idCategory_${i}_CardWrapper" class="CategoryCardWrapper">
             <header id="idProductCategory_${i}_Heading" class="ProductCategoryHeading">
                 <h2 id="idCategory_${i}_Name" class="CategoryName">
                     ${loopCatalog[i].category}
                 </h2>
                 <img id="idCategory_${i}_Icon" class="Category_${i}_Icon" src="${loopCatalog[i].iconPath}" alt="alt">
-
             </header>
-
-            <div id="idProductCardsWrapper" class="ProductCardsWrapper">
-                <p>${loopCatalog[i].category}</p>
-                <!-- getArticleTemplate(${i}); -->
-
+            <div id="idProductCardsCategory_${i}_Wrapper" class="ProductCardsWrapper">
             </div>
         </div>`
 }
 
-function getProductCardTemplate(i) {
-
+function getProductCardTemplate(i, indexOfProductCard) {
     return html`
-        <article id="idProductCard0" class="ProductCard">
-            <button type="button" id="idProductCard0PreviewWrapper" class="ProductCardPreviewWrapper">
-                <img id="idProductCard0ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg" alt="play">
+        <article id="idProductCard${indexOfProductCard}" class="ProductCard">
+            <button type="button" id="idProductCard_$${indexOfProductCard}_PreviewWrapper" class="ProductCardPreviewWrapper">
+                <img id="idProductCard_$${indexOfProductCard}_ImagePlayButtonOverlay" class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg" alt="play">
             </button>
-            <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
-                <p id="idProduct0Content" class="ProductContent">
-                    2x Ping Snare One-Shots,
-                    1x Sub-Drop 808 Boom,
-                    1x Chug Guitar Stems (DI & Amped)
+            <div id="idProductCard_$${indexOfProductCard}_DescriptionWrapper" class="ProductCardDescriptionWrapper">
+                <h3 id="idProduct_$${indexOfProductCard}_Name" class="ProductName">${loopCatalog[i].loops[indexOfProductCard].title}</h3>
+                <p id="idProduct_${indexOfProductCard}_Content" class="ProductContent">
+                    ${loopCatalog[i].loops[indexOfProductCard].includedSamples.join(", ")}
                 </p>
             </div>
-            <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                <p id="idProduct0Price" class="ProductPrice">
+            <div id="idProductCard_$${indexOfProductCard}_PurchaseWrapper" class="ProductCardPurchaseWrapper">
+                <p id="idProduct_$${indexOfProductCard}_Price" class="ProductPrice">
                     <b>12.90 €</b>
                 </p>
-                <button type="button" id="idAdd0ToShopingCartButton0" class="AddToShopingCartButton">
+                <button type="button" id="idAdd0ToShopingCartButton_$${indexOfProductCard}" class="AddToShopingCartButton">
                     Add to Shoping Cart
                 </button>
-                <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
+                <button type="button" id="idButton_$${indexOfProductCard}_LiveLabeled" class="ButtonLiveLabeled Hide">
                     Added $license<br>
                     $Format
                 </button>
