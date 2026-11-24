@@ -82,8 +82,38 @@ function addToShopingCart(i, indexOfProductCard) {
 // function showAddedConfirmation(indexOfProductCard, license, format) {
 function showAddedConfirmation(indexOfProductCard) {
     const BUTTON_OF_PRODUCT = document.getElementById(`idAddToShopingCartButton_${indexOfProductCard}`);
-    // get
-    BUTTON_OF_PRODUCT.innerHTML = "free/mp3 Added";
+    let currentLicenseIndex = getActualLicenseType(indexOfProductCard);
+    let currentFormatIndex = getActualFormatType(indexOfProductCard);
+    // BUTTON_OF_PRODUCT.innerHTML = "free/mp3 Added";
+    BUTTON_OF_PRODUCT.innerHTML = `${LICENSES[currentLicenseIndex].licenseKey}/ ${AUDIO_FORMATS[currentFormatIndex].formatKey} ADDED`;
+
+    `LICENSES[${currentLicenseIndex}].licenseKey/AUDIO_FORMATS[${currentFormatIndex}].formatKey ADDED`
+}
+
+function getActualLicenseType(indexOfProductCard) {
+    switch (shopingCart[indexOfProductCard].licenceType) {
+        case "free":
+            return 0;
+        case "basic":
+            return 1;
+        case "pro":
+            return 2;
+        case "exclusive":
+            return 3;
+    }
+}
+
+function getActualFormatType(indexOfProductCard) {
+    switch (shopingCart[indexOfProductCard].audioFormat) {
+        case "mp3":
+            return 0;
+        case "wav":
+            return 1;
+        case "flac":
+            return 2;
+        case "master":
+            return 3;
+    }
 }
 
 function getProductIndex(indexOfProductCard) {
