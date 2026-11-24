@@ -54,6 +54,76 @@ function getProductCardTemplate(i, indexOfProductCard, productCounter) {
         </article>`
 }
 
+function getShopingCartTemplate() {
+    return html`
+                    <div id="idMobileShopingCart" class="MobileShopingCart DesktopShopingCart">
+                    <button type="button" id="idMobileDialogCloseBtn" class="MobileDialogCloseBtn"></button>
+                    <h2 id="idMobileShopingCartHeading" class="MobileShopingCartHeading"> Ur Shoping Cart</h2>
+                    <section id="idShopingCartCurrentContent" class="ShopingCartCurrentContent"></section>
+
+                    <img id="idShopingCartIcon" class="ShopingCartIcon Hide" src="./assets/icons/shoping-trolley.svg"
+                        alt="shoping cart icon">
+
+                    <table id="idShopingCartPriceCalculation" class="ShopingCartPriceCalculation">
+                        <tr id="idSubTotalData" class="ShopingCartTableRow">
+                            <th id="idTableHeading0" class="TableHeading">Subtotal</th>
+                            <td id="idSubtotalPrice">x,xx €</td>
+                        </tr>
+                        <tr id="idDeliveryData" class="ShopingCartTableRow DeliveryCost">
+                            <th id="idTableHeading1" class="TableHeading">Delevery fee</th>
+                            <td id="idDeliveryPrice">x,xx €</td>
+                        </tr>
+                        <tr id="idPurchaseTotalSummaryData" class="ShopingCartTableRow Summary">
+                            <th id="idTableHeading3" class="TableHeading">Total</th>
+                            <td id="idTotalPrice">x,xx €</td>
+                        </tr>
+                    </table>
+
+                    <button type="button" id="idPurchaseConfirmButton" class="PurchaseConfirmButton">
+                        <b>Buy now (x,xx €)</b>
+                    </button>
+                </div>`
+}
+
+
+function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, license, format, priceOfArticle) {
+    return html`
+        <article id="idShopingCartArticle${currentProductIndex}" class="ShopingCartArticle">
+            <div id="idShopingCartArticle${currentProductIndex}Line1Wrapper" class="ShopingCartArticleLine1Wrapper">
+                <p id="idShopingCartIndividualChoiseArticle${currentProductIndex}" class="ShopingCartIndividualChoise">
+                    ${titleOfProduct}</p>
+                <button type="button" id="idDeleteObjectOfDesire${currentProductIndex}" class="DeleteObjectOfDesire"></button>
+            </div>
+            <div id="idShopingCartArticle${currentProductIndex}Line2Wrapper" class="ShopingCartArticleLine2Wrapper">
+                <div id="idLicenseSelectAreaWrapper${currentProductIndex}" class="LicenseSelectAreaWrapper">
+                    <label for="idSelectButtons${currentProductIndex}Area1Wrapper" class="LabelSelect License">License</label>
+                    <div id="idSelectButtons${currentProductIndex}Area1Wrapper" class="SelectButtonWrapper">
+                        <button type="button" id="idDecreaseLicenseArticle${currentProductIndex}" class="DecreaseLicense" onclick="changeLicense(${currentProductIndex})"></button>
+                        <p id="idCurrentLicenseLevelArticle${currentProductIndex}" class="CurrentLicenseLevel">${license}</p>
+                        <button type="button" id="idIncreaseLicenseLevelArticle${currentProductIndex}"class="IncreaseLicenseLevel"></button>
+                    </div>
+                </div>
+                <div id="idFormatSelectAreaWrapper${currentProductIndex}" class="FormatSelectAreaWrapper">
+                    <label for="idSelectButton${currentProductIndex}Area2Wrapper" class="LabelSelect Format">Format</label>
+                    <div id="idSelectButtons${currentProductIndex}Area2Wrapper" class="SelectButtonWrapper">
+                        <button type="button" id="idDecreaseFormatTypeArticle${currentProductIndex}" class="DecreaseFormatType"></button>
+                        <p id="idCurrentFormatTypeArticle${currentProductIndex}" class="CurrentFormatType">${format}</p>
+                        <button type="button" id="idIncreaseFormatTypeArticle${currentProductIndex}" class="IncreaseFormatType"></button>
+                    </div>
+                </div>
+                <p id="idCurrentPriceArticle${currentProductIndex}" class="CurrentPrice">${priceOfArticle} €</p>
+            </div>
+        </article>`
+}
+
+function getEmptyShopingCartTemplate() {
+    return html`
+        <p id="idEmptyShopingCartMessage" class="EmptyShopingCartMessage Hide">
+            Nothing here yet. Go ahead and choose something resonateable!
+        </p>
+    `
+}
+
 
 
 // #endregion
