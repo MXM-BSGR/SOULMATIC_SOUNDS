@@ -16,7 +16,7 @@
     <!-- #endregion -->
     <!-- ------------------------------------------------------------- -->
     <!-- #region  SCRIPT  -->
-    <script defer src="./js/json-basket.js"></script>
+    <script defer src="./js/json-shoping-cart.js"></script>
     <script defer src="./js/json-image-info.js"></script>
     <script defer src="./js/json-product-catalog.js"></script>
     <script defer src="./js/templates.js"></script>
@@ -46,7 +46,6 @@
             <img src="./assets/img/detailed-logo.jpg" class="DetailedLogo" alt="logo of Soulmatic Sounds">
         </section>
         <section id="idHeroHeading" class="HeroHeading">
-
             <div id="idHeroEyebrow" class="HeroEyebrow">
                 <img id="idRatingsIcon" class="RatingsIcon" src="./assets/icons/rating-star.svg"
                     alt="rating star icon ">
@@ -61,271 +60,15 @@
         </section>
 
         <section id="idOrderArea" class="OrderArea">
-            <div id="idProductCategorysWrapper" class="ProductCategorysWrapper">
+            <div id="idProductCategorysWrapper" class="ProductCategorysWrapper ">
 
-                <div id="idMobileShopingCart" class="MobileShopingCart DesktopShopingCart">
-                    <button type="button" id="idMobileDialogCloseBtn" class="MobileDialogCloseBtn"></button>
-                    <h2 id="idMobileShopingCartHeading" class="MobileShopingCartHeading"> Ur Shoping Cart</h2>
-                    <section id="idShopingCartCurrentContent" class="ShopingCartCurrentContent">
-                        <p id="idEmptyShopingCartMessage" class="EmptyShopingCartMessage Hide">Nothing here yet. Go
-                            ahead
-                            and
-                            choose something resonateable!</p>
-                        <article id="idShopingCartArticle" class="ShopingCartArticle">
-                            <div id="idShopingCartArticleLine1Wrapper" class="ShopingCartArticleLine1Wrapper">
-                                <p id="idShopingCartIndividualChoise" class="ShopingCartIndividualChoise">
-                                    $xName.$mp3$free</p>
-                                <button type="button" id="idDeleteObjectOfDesire" class="DeleteObjectOfDesire"></button>
-
-                            </div>
-                            <div id="idShopingCartArticleLine2Wrapper" class="ShopingCartArticleLine2Wrapper">
-
-                                <div id="idLicenseSelectAreaWrapper" class="LicenseSelectAreaWrapper">
-                                    <label for="idSelectButtonArea1Wrapper" class="LabelSelect License">license</label>
-                                    <div id="idSelectButtonArea1Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseLicense" class="DecreaseLicense"></button>
-                                        <p id="idCurrentLicenseLevel" class="CurrentLicenseLevel">free</p>
-                                        <button type="button" id="idIncreaseLicenseLevel"
-                                            class="IncreaseLicenseLevel"></button>
-                                    </div>
-                                </div>
-                                <div id="idFormatSelectAreaWrapper" class="FormatSelectAreaWrapper">
-                                    <label for="idSelectButtonArea2Wrapper" class="LabelSelect Format">Format</label>
-                                    <div id="idSelectButtonArea2Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseFormatType"
-                                            class="DecreaseFormatType"></button>
-                                        <p id="idCurrentFormatType" class="CurrentFormatType">.mp3</p>
-                                        <button type="button" id="idIncreaseFormatType"
-                                            class="IncreaseFormatType"></button>
-                                    </div>
-                                </div>
-                                <p id="idCurrentPrice" class="CurrentPrice">0,00 €</p>
-                            </div>
-                        </article>
-                        <article id="idShopingCartArticle" class="ShopingCartArticle">
-                            <div id="idShopingCartArticleLine1Wrapper" class="ShopingCartArticleLine1Wrapper">
-                                <p id="idShopingCartIndividualChoise" class="ShopingCartIndividualChoise">
-                                    $xName.$mp3$free</p>
-                                <button type="button" id="idDeleteObjectOfDesire" class="DeleteObjectOfDesire"></button>
-
-                            </div>
-                            <div id="idShopingCartArticleLine2Wrapper" class="ShopingCartArticleLine2Wrapper">
-
-                                <div id="idLicenseSelectAreaWrapper" class="LicenseSelectAreaWrapper">
-                                    <label for="idSelectButtonArea1Wrapper" class="LabelSelect License">license</label>
-                                    <div id="idSelectButtonArea1Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseLicense" class="DecreaseLicense"></button>
-                                        <p id="idCurrentLicenseLevel" class="CurrentLicenseLevel">free</p>
-                                        <button type="button" id="idIncreaseLicenseLevel"
-                                            class="IncreaseLicenseLevel"></button>
-                                    </div>
-                                </div>
-                                <div id="idFormatSelectAreaWrapper" class="FormatSelectAreaWrapper">
-                                    <label for="idSelectButtonArea2Wrapper" class="LabelSelect Format">Format</label>
-                                    <div id="idSelectButtonArea2Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseFormatType"
-                                            class="DecreaseFormatType"></button>
-                                        <p id="idCurrentFormatType" class="CurrentFormatType">.mp3</p>
-                                        <button type="button" id="idIncreaseFormatType"
-                                            class="IncreaseFormatType"></button>
-                                    </div>
-                                </div>
-                                <p id="idCurrentPrice" class="CurrentPrice">0,00 €</p>
-                            </div>
-                        </article>
-                        <article id="idShopingCartArticle" class="ShopingCartArticle">
-                            <div id="idShopingCartArticleLine1Wrapper" class="ShopingCartArticleLine1Wrapper">
-                                <p id="idShopingCartIndividualChoise" class="ShopingCartIndividualChoise">
-                                    $xName.$mp3$free</p>
-                                <button type="button" id="idDeleteObjectOfDesire" class="DeleteObjectOfDesire"></button>
-
-                            </div>
-                            <div id="idShopingCartArticleLine2Wrapper" class="ShopingCartArticleLine2Wrapper">
-
-                                <div id="idLicenseSelectAreaWrapper" class="LicenseSelectAreaWrapper">
-                                    <label for="idSelectButtonArea1Wrapper" class="LabelSelect License">license</label>
-                                    <div id="idSelectButtonArea1Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseLicense" class="DecreaseLicense"></button>
-                                        <p id="idCurrentLicenseLevel" class="CurrentLicenseLevel">free</p>
-                                        <button type="button" id="idIncreaseLicenseLevel"
-                                            class="IncreaseLicenseLevel"></button>
-                                    </div>
-                                </div>
-                                <div id="idFormatSelectAreaWrapper" class="FormatSelectAreaWrapper">
-                                    <label for="idSelectButtonArea2Wrapper" class="LabelSelect Format">Format</label>
-                                    <div id="idSelectButtonArea2Wrapper" class="SelectButtonWrapper">
-                                        <button type="button" id="idDecreaseFormatType"
-                                            class="DecreaseFormatType"></button>
-                                        <p id="idCurrentFormatType" class="CurrentFormatType">.mp3</p>
-                                        <button type="button" id="idIncreaseFormatType"
-                                            class="IncreaseFormatType"></button>
-                                    </div>
-                                </div>
-                                <p id="idCurrentPrice" class="CurrentPrice">0,00 €</p>
-                            </div>
-                        </article>
-
-                    </section>
-
-                    <img id="idShopingCartIcon" class="ShopingCartIcon Hide" src="./assets/icons/shoping-trolley.svg"
-                        alt="shoping cart icon">
-
-                    <table id="idShopingCartPriceCalculation" class="ShopingCartPriceCalculation">
-                        <tr id="idSubTotalData" class="ShopingCartTableRow">
-                            <th id="idTableHeading0" class="TableHeading">Subtotal</th>
-                            <td id="idSubtotalPrice">x,xx €</td>
-                        </tr>
-                        <tr id="idDeliveryData" class="ShopingCartTableRow DeliveryCost">
-                            <th id="idTableHeading1" class="TableHeading">Delevery fee</th>
-                            <td id="idDeliveryPrice">x,xx €</td>
-                        </tr>
-                        <tr id="idPurchaseTotalSummaryData" class="ShopingCartTableRow Summary">
-                            <th id="idTableHeading3" class="TableHeading">Total</th>
-                            <td id="idTotalPrice">x,xx €</td>
-                        </tr>
-                    </table>
-
-                    <button type="button" id="idPurchaseConfirmButton" class="PurchaseConfirmButton">
-                        <b>Buy now (x,xx €)</b>
-                    </button>
-                </div>
-                <div id="idAllCategories" class="AllCategories">
-                    <!-- <div id="idCategoryCardWrapper" class="CategoryCardWrapper">
-                        <header id="idProductCategoryHeading" class="ProductCategoryHeading">
-                            <h2 id="idCategoryName" class="CategoryName">Slam & Beatdown Metal</h2>
-                            <img id="idCategory0Icon" class="Category0Icon" src="./assets/icons/beatdown.svg" alt="alt">
-
-                        </header>
-
-                        <div id="idProductCardsWrapper" class="ProductCardsWrapper">
-                            <article id="idProductCard0" class="ProductCard">
-                                <button type="button" id="idProductCard0PreviewWrapper"
-                                    class="ProductCardPreviewWrapper">
-                                    <img id="idProductCard0ImagePlayButtonOverlay"
-                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
-                                        alt="play">
-                                </button>
-                                <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                                    <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
-                                    <p id="idProduct0Content" class="ProductContent">
-                                        2x Ping Snare One-Shots,
-                                        1x Sub-Drop 808 Boom,
-                                        3x Chug Guitar Stems (DI & Amped)
-                                    </p>
-                                </div>
-                                <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                                    <p id="idProduct0Price" class="ProductPrice">
-                                        <b>12.90 €</b>
-                                    </p>
-                                    <button type="button" id="idAdd0ToShopingCartButton0"
-                                        class="AddToShopingCartButton">
-                                        Add to Shoping Cart</button>
-                                    <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
-                                        Added $license<br>
-                                        $Format</button>
-                                </div>
-
-
-                            </article>
-                            <article id="idProductCard1" class="ProductCard">
-                                <button type="button" id="idProductCard1PreviewWrapper"
-                                    class="ProductCardPreviewWrapper">
-                                    <img id="idProductCard1ImagePlayButtonOverlay"
-                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
-                                        alt="play">
-                                </button>
-                                <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                                    <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
-                                    <p id="idProduct1Content" class="ProductContent">
-                                        4x Raw Kick & Snare Hits
-                                        1x Trashy China Cymbal
-                                        2x Downtuned Bass Riffs
-                                    </p>
-                                </div>
-                                <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                                    <p id="idProduct1Price" class="ProductPrice">
-                                        <b>14.90 €</b>
-                                    </p>
-                                    <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
-                                        Add to Shoping Cart</button>
-                                </div>
-
-
-                            </article>
-                        </div>
-                    </div>
-                    <div id="idCategoryCardWrapper" class="CategoryCardWrapper">
-                        <header id="idProductCategory2Heading" class="ProductCategory2Heading">
-                            <h2 id="idCategory2Name" class="Category2Name">Slam & Beatdown Metal</h2>
-                            <img id="idCategory1Icon" class="Category1Icon" src="./assets/icons/beatdown.svg" alt="alt">
-
-                        </header>
-
-                        <div id="idProductCardsWrapper" class="ProductCardsWrapper">
-                            <article id="idProductCard0" class="ProductCard">
-                                <button type="button" id="idProductCard0PreviewWrapper"
-                                    class="ProductCardPreviewWrapper">
-                                    <img id="idProductCard0ImagePlayButtonOverlay"
-                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
-                                        alt="play">
-                                </button>
-                                <div id="idProductCard0DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                                    <h3 id="idProduct0Name" class="ProductName">Concrete Breakdown Riff (Drop A)</h3>
-                                    <p id="idProduct0Content" class="ProductContent">
-                                        2x Ping Snare One-Shots,
-                                        1x Sub-Drop 808 Boom,
-                                        3x Chug Guitar Stems (DI & Amped)
-                                    </p>
-                                </div>
-                                <div id="idProductCard0PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                                    <p id="idProduct0Price" class="ProductPrice">
-                                        <b>12.90 €</b>
-                                    </p>
-                                    <button type="button" id="idAdd0ToShopingCartButton0"
-                                        class="AddToShopingCartButton">
-                                        Add to Shoping Cart</button>
-                                    <button type="button" id="idButtonLiveLabeled" class="ButtonLiveLabeled Hide">
-                                        Added $license<br>
-                                        $Format</button>
-                                </div>
-
-
-                            </article>
-                            <article id="idProductCard1" class="ProductCard">
-                                <button type="button" id="idProductCard1PreviewWrapper"
-                                    class="ProductCardPreviewWrapper">
-                                    <img id="idProductCard1ImagePlayButtonOverlay"
-                                        class="ProductCardImagePlayButtonOverlay" src="./assets/icons/play-button.svg"
-                                        alt="play">
-                                </button>
-                                <div id="idProductCard1DescriptionWrapper" class="ProductCardDescriptionWrapper">
-                                    <h3 id="idProduct1Name" class="ProductName">Gutter Slam Groove & China Loop</h3>
-                                    <p id="idProduct1Content" class="ProductContent">
-                                        4x Raw Kick & Snare Hits
-                                        1x Trashy China Cymbal
-                                        2x Downtuned Bass Riffs
-                                    </p>
-                                </div>
-                                <div id="idProductCard1PurchaseWrapper" class="ProductCardPurchaseWrapper">
-                                    <p id="idProduct1Price" class="ProductPrice">
-                                        <b>14.90 €</b>
-                                    </p>
-                                    <button type="button" id="idAddToShopingCartButton1" class="AddToShopingCartButton">
-                                        Add to Shoping Cart</button>
-                                </div>
-
-
-                            </article>
-                        </div>
-                    </div>
-
-                </div> -->
-                </div>
-                <!-- #region  MOBILE SHOPING CART -->
-
-                <!-- #endregion -->
-                <!-- ------------------------------------------------------------- -->
+                <div id="idAllCategories" class="AllCategories"></div>
             </div>
+            <!-- #region  MOBILE SHOPING CART -->
+
+            <!-- #endregion -->
+            <!-- ------------------------------------------------------------- -->
+
 
         </section>
 
