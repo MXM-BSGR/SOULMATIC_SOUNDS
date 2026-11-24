@@ -102,7 +102,7 @@ const AUDIO_FORMATS = [
 let loopCatalog = [
     {
         "category": "Slam & Beatdown Metal",
-        "iconPath": "./assets/icons/beatdown.svg",
+        "iconPath": "./assets/icons/beatdown1.svg",
         "loops": [
             {
                 "loopKey": "idMetal0",
@@ -133,8 +133,8 @@ let loopCatalog = [
         ]
     },
     {
-        "category": "Dark & Underground Hip-Hop",
-        "iconPath": "./assets/icons/underground-hiphop.svg",
+        "category": "Underground Hip-Hop",
+        "iconPath": "./assets/icons/underground-hiphop1.svg",
         "loops": [
             {
                 "loopKey": "idHiphop0",
@@ -166,7 +166,7 @@ let loopCatalog = [
     },
     {
         "category": "Hard & Melodic Techno",
-        "iconPath": "./assets/icons/techno.svg",
+        "iconPath": "./assets/icons/techno1.svg",
         "loops": [
             {
                 "loopKey": "idTechno0",
@@ -198,7 +198,7 @@ let loopCatalog = [
     },
     {
         "category": "Psychedelic Indie & Lo-Fi",
-        "iconPath": "./assets/icons/indie.svg",
+        "iconPath": "./assets/icons/indie1.svg",
         "loops": [
             {
                 "loopKey": "idIndie0",
