@@ -18,14 +18,16 @@ function getCategoryTemplate(i) {
                 <h2 id="idCategory_${i}_Name" class="CategoryName">
                     ${loopCatalog[i].category}
                 </h2>
-                <img id="idCategory_${i}_Icon" class="Category_${i}_Icon" src="${loopCatalog[i].iconPath}" alt="alt">
+                <div id="idIcon_${i}_Wrapper" class="IconWrapper">
+                    <img id="idCategory_${i}_Icon" class="Category_${i}_Icon" src="${loopCatalog[i].iconPath}" alt="alt">
+                </div>
             </header>
             <div id="idProductCardsCategory_${i}_Wrapper" class="ProductCardsWrapper">
             </div>
         </div>`
 }
 
-function getProductCardTemplate(i, indexOfProductCard) {
+function getProductCardTemplate(i, indexOfProductCard, productCounter) {
     return html`
         <article id="idProductCard${indexOfProductCard}" class="ProductCard">
             <button type="button" id="idProductCard_$${indexOfProductCard}_PreviewWrapper" class="ProductCardPreviewWrapper">
@@ -41,7 +43,7 @@ function getProductCardTemplate(i, indexOfProductCard) {
                 <p id="idProduct_$${indexOfProductCard}_Price" class="ProductPrice">
                     <b>12.90 €</b>
                 </p>
-                <button type="button" id="idAdd0ToShopingCartButton_$${indexOfProductCard}" class="AddToShopingCartButton">
+                <button type="button" id="idAddToShopingCartButton_${indexOfProductCard}" class="AddToShopingCartButton" onclick="addToShopingCart(${i},${indexOfProductCard})" value="${productCounter}">
                     Add to Shoping Cart
                 </button>
                 <button type="button" id="idButton_$${indexOfProductCard}_LiveLabeled" class="ButtonLiveLabeled Hide">
