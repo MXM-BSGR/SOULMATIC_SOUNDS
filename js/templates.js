@@ -63,13 +63,20 @@ function getShopingCartTemplate() {
 
                     <img id="idShopingCartIcon" class="ShopingCartIcon Hide" src="./assets/icons/shoping-trolley.svg"
                         alt="shoping cart icon">
+                    <div>
+                        <label>Choose:</label>
+                        <button type="button">Instant Download</button>
+                        <button type="button">Hardware</button>
+</div>
 
                     <table id="idShopingCartPriceCalculation" class="ShopingCartPriceCalculation">
-                        <tr id="idSubTotalData" class="ShopingCartTableRow">
+                        <!-- <tr id="idSubTotalData" class="ShopingCartTableRow"> -->
+                        <tr id="idSubTotalData" class="Hide">
                             <th id="idTableHeading0" class="TableHeading">Subtotal</th>
                             <td id="idSubtotalPrice">x,xx €</td>
                         </tr>
-                        <tr id="idDeliveryData" class="ShopingCartTableRow DeliveryCost">
+                        <tr id="idDeliveryData" class="Hide">
+                        <!-- <tr id="idDeliveryData" class="ShopingCartTableRow DeliveryCost Hide"> -->
                             <th id="idTableHeading1" class="TableHeading">Delevery fee</th>
                             <td id="idDeliveryPrice">x,xx €</td>
                         </tr>
@@ -92,7 +99,7 @@ function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, lice
             <div id="idShopingCartArticle${currentProductIndex}Line1Wrapper" class="ShopingCartArticleLine1Wrapper">
                 <p id="idShopingCartIndividualChoiseArticle${currentProductIndex}" class="ShopingCartIndividualChoise">
                     ${titleOfProduct}</p>
-                <button type="button" id="idDeleteObjectOfDesire${currentProductIndex}" class="DeleteObjectOfDesire"></button>
+                <button type="button" id="idDeleteObjectOfDesire${currentProductIndex}" class="DeleteObjectOfDesire" onclick="deleteObjectOfDesire(${currentProductIndex})"></button>
             </div>
             <div id="idShopingCartArticle${currentProductIndex}Line2Wrapper" class="ShopingCartArticleLine2Wrapper">
                 <div id="idLicenseSelectAreaWrapper${currentProductIndex}" class="LicenseSelectAreaWrapper">
