@@ -27,7 +27,7 @@ function getCategoryTemplate(i) {
         </div>`
 }
 
-function getProductCardTemplate(i, indexOfProductCard, productCount) {
+function getProductCardTemplate(i, indexOfProductCard, productCounter) {
     return html`
         <article id="idProductCard${indexOfProductCard}" class="ProductCard">
             <button type="button" id="idProductCard_$${indexOfProductCard}_PreviewWrapper" class="ProductCardPreviewWrapper">
@@ -43,7 +43,7 @@ function getProductCardTemplate(i, indexOfProductCard, productCount) {
                 <p id="idProduct_$${indexOfProductCard}_Price" class="ProductPrice">
                     <b>12.90 €</b>
                 </p>
-                <button type="button" id="idAddToShopingCartButton_${productCount}" class="AddToShopingCartButton" onclick="addToShopingCart(${i},${indexOfProductCard}, ${productCount})" value="${productCount}">
+                <button type="button" id="idAddToShopingCartButton_${productCounter}" class="AddToShopingCartButton" onclick="addToShopingCart(${i},${indexOfProductCard}, ${productCounter})" value="${productCounter}">
                     Add to Shoping Cart
                 </button>
                 <button type="button" id="idButton_$${indexOfProductCard}_LiveLabeled" class="ButtonLiveLabeled Hide">
