@@ -98,17 +98,17 @@ function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, lice
                 <div id="idLicenseSelectAreaWrapper${currentProductIndex}" class="LicenseSelectAreaWrapper">
                     <label for="idSelectButtons${currentProductIndex}Area1Wrapper" class="LabelSelect License">License</label>
                     <div id="idSelectButtons${currentProductIndex}Area1Wrapper" class="SelectButtonWrapper">
-                        <button type="button" id="idDecreaseLicenseArticle${currentProductIndex}" class="DecreaseLicense" onclick="decreaseLicenseLevel(${currentProductIndex}), changeLicense(${currentProductIndex}), showAddedConfirmation(${currentProductIndex}), updateAddedButtonContent(${currentProductIndex})"></button>
+                        <button type="button" id="idDecreaseLicenseArticle${currentProductIndex}" class="DecreaseLicense" onclick="decreaseLicense(${currentProductIndex})"></button>
                         <p id="idCurrentLicenseLevelArticle${currentProductIndex}" class="CurrentLicenseLevel">${license}</p>
-                        <button type="button" id="idIncreaseLicenseLevelArticle${currentProductIndex}"class="IncreaseLicenseLevel" onclick="increaseLicenseLevel(${currentProductIndex}), changeLicense(${currentProductIndex}), showAddedConfirmation(${currentProductIndex}), updateAddedButtonContent(${currentProductIndex})"></button>
+                        <button type="button" id="idIncreaseLicenseLevelArticle${currentProductIndex}"class="IncreaseLicenseLevel" onclick="increaseLicense(${currentProductIndex})"></button>
                     </div>
                 </div>
                 <div id="idFormatSelectAreaWrapper${currentProductIndex}" class="FormatSelectAreaWrapper">
                     <label for="idSelectButton${currentProductIndex}Area2Wrapper" class="LabelSelect Format">Format</label>
                     <div id="idSelectButtons${currentProductIndex}Area2Wrapper" class="SelectButtonWrapper">
-                        <button type="button" id="idDecreaseFormatTypeArticle${currentProductIndex}" class="DecreaseFormatType"></button>
+                        <button type="button" id="idDecreaseFormatTypeArticle${currentProductIndex}" class="DecreaseFormatType" onclick="decreaseFormat(${currentProductIndex})"></button>
                         <p id="idCurrentFormatTypeArticle${currentProductIndex}" class="CurrentFormatType">${format}</p>
-                        <button type="button" id="idIncreaseFormatTypeArticle${currentProductIndex}" class="IncreaseFormatType"></button>
+                        <button type="button" id="idIncreaseFormatTypeArticle${currentProductIndex}" class="IncreaseFormatType" onclick="increaseFormat(${currentProductIndex})"></button>
                     </div>
                 </div>
                 <p id="idCurrentPriceArticle${currentProductIndex}" class="CurrentPrice">${priceOfArticle} €</p>
