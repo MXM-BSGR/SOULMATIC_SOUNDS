@@ -87,7 +87,7 @@ function showAddedConfirmation(indexOfProductCard) {
     let currentLicenseIndex = getActualLicenseType(indexOfProductCard);
     let currentFormatIndex = getActualFormatType(indexOfProductCard);
     // BUTTON_OF_PRODUCT.innerHTML = "free/mp3 Added";
-    BUTTON_OF_PRODUCT.innerHTML = `${LICENSES[currentLicenseIndex].licenseKey}/ ${AUDIO_FORMATS[currentFormatIndex].formatKey} ADDED`;
+    BUTTON_OF_PRODUCT.innerHTML = `${LICENSES[indexOfProductCard].licenseKey}/ ${AUDIO_FORMATS[currentFormatIndex].formatKey} ADDED`;
 
     `LICENSES[${currentLicenseIndex}].licenseKey/AUDIO_FORMATS[${currentFormatIndex}].formatKey ADDED`
 }
@@ -147,19 +147,20 @@ function renderProductCardForShopingCart(currentProductIndex, productCount) {
     return getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, license, format, priceOfArticle, originalCategoryIndex, originalProductIndex);
 }
 
-function changeLicense(currentProductIndex) {
-    let increaseButtonDisplayRef = document.getElementById(`idCurrentLicenseLevelArticle${currentProductIndex}`);
+function changeLicenseDisplay(currentProductIndex) {
+    let increaseButtonLicenseDisplayRef = document.getElementById(`idCurrentLicenseLevelArticle${currentProductIndex}`);
     let currentLicense = getActualLicenseType(currentProductIndex);
-
-    // if (currentLicense === 0 || currentLicense === 1 || currentLicense === 2) {
-    //     currentLicense++;
-    // }
-    // else if (currentLicense === 3) {
-    //     return currentLicense;
-    // };
-    increaseButtonDisplayRef.innerHTML = "";
-    increaseButtonDisplayRef.innerHTML = `${LICENSES[currentLicense].licenseKey}`;
+    increaseButtonLicenseDisplayRef.innerHTML = "";
+    increaseButtonLicenseDisplayRef.innerHTML = `${LICENSES[currentLicense].licenseKey}`;
     shopingCart[currentProductIndex].licenceType = `${LICENSES[currentLicense].licenseKey}`;
+}
+
+function changeFormatDisplay(currentProductIndex) {
+    let increaseButtonFormatDisplayRef = document.getElementById(`idCurrentFormatTypeArticle${currentProductIndex}`);
+    let currentFormat = getActualFormatType(currentProductIndex);
+    increaseButtonFormatDisplayRef.innerHTML = "";
+    increaseButtonFormatDisplayRef.innerHTML = `${AUDIO_FORMATS[currentFormat].formatKey}`;
+    shopingCart[currentProductIndex].audioFormat = `${AUDIO_FORMATS[currentFormat].formatKey}`;
 }
 
 function increaseLicenseLevel(currentProductIndex) {
@@ -167,6 +168,17 @@ function increaseLicenseLevel(currentProductIndex) {
     if (currentLicense >= 0 && currentLicense <= 2) {
         currentLicense++;
         shopingCart[currentProductIndex].licenceType = `${LICENSES[currentLicense].licenseKey}`;
+    }
+    return currentProductIndex;
+    // let positiOfOriginalProduct = shopingCart[currentProductIndex].position;
+    // console.log(positiOfOriginalProduct);
+    // return positiOfOriginalProduct;
+};
+function increaseFormatLevel(currentProductIndex) {
+    let currentFormat = getActualFormatType(currentProductIndex);
+    if (currentFormat >= 0 && currentFormat <= 2) {
+        currentFormat++;
+        shopingCart[currentProductIndex].audioFormat = `${AUDIO_FORMATS[currentFormat].formatKey}`;
     }
     return currentProductIndex;
     // let positiOfOriginalProduct = shopingCart[currentProductIndex].position;
@@ -182,19 +194,49 @@ function decreaseLicenseLevel(currentProductIndex) {
         return;
     }
 };
+function decreaseFormatLevel(currentProductIndex) {
+    let currentFormat = getActualFormatType(currentProductIndex);
+    if (currentFormat >= 0 && currentFormat <= 3) {
+        currentFormat--;
+        shopingCart[currentProductIndex].audioFormat = `${AUDIO_FORMATS[currentFormat].formatKey}`;
+        return;
+    }
+};
 
 function updateAddedButtonContent(currentProductIndex) {
     let articleButtonNumberRef = shopingCart[currentProductIndex].productCount;
     const TO_UPDATE_BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${articleButtonNumberRef}`);
-    TO_UPDATE_BUTTON_REF.innerHTML = `LICENSES[${currentLicenseIndex}].licenseKey/AUDIO_FORMATS[${currentFormatIndex}].formatKey ADDED`;
-
+    TO_UPDATE_BUTTON_REF.innerHTML = `${shopingCart[currentProductIndex].licenceType} / ${shopingCart[currentProductIndex].audioFormat} ADDED`;
 
 }
 
 
-// function getCurrentLicenseType(currentProductIndex) {
-//     return shopingCart[currentProductIndex].licenceType;
-// }
+function decreaseLicense(currentProductIndex) {
+    decreaseLicenseLevel(currentProductIndex);
+    changeLicenseDisplay(currentProductIndex)
+    showAddedConfirmation(currentProductIndex)
+    updateAddedButtonContent(currentProductIndex);
+}
+function increaseLicense(currentProductIndex) {
+    increaseLicenseLevel(currentProductIndex);
+    changeLicenseDisplay(currentProductIndex)
+    showAddedConfirmation(currentProductIndex)
+    updateAddedButtonContent(currentProductIndex);
+}
+function decreaseFormat(currentProductIndex) {
+    decreaseFormatLevel(currentProductIndex);
+    changeFormatDisplay(currentProductIndex)
+    showAddedConfirmation(currentProductIndex)
+    updateAddedButtonContent(currentProductIndex);
+}
+function increaseFormat(currentProductIndex) {
+    increaseFormatLevel(currentProductIndex);
+    changeFormatDisplay(currentProductIndex)
+    showAddedConfirmation(currentProductIndex)
+    updateAddedButtonContent(currentProductIndex);
+}
+
+
 
 // #endregion
 //-------------------------------------------------------------
