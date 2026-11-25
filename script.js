@@ -52,17 +52,18 @@ function renderProductCards(i, productCounter) {
 
 // #region SHOPING CART
 
-function addToShopingCart(i, indexOfProductCard, productCount) {
+function addToShopingCart(i, indexOfProductCard, productCounter) {
     let categoryIndex = i;
     let productIndex = getProductIndex(indexOfProductCard);
+    let productsInShopingCart = shopingCart.length;
     // console.log(`category: ${categoryIndex} productIndex: ${productIndex}`);
     // shopingCart.push(loopCatalog[i].loops[i]);
     // console.log(shopingCart);
     let productInformationRef = loopCatalog[categoryIndex].loops[productIndex];
     // let infoForShopingCart = [];
     let titleOfProduct = productInformationRef.title;
-    let licenseTypeOfProduct = productInformationRef.currentLicense;
-    let formatTypeOfProduct = productInformationRef.currentFormat;
+    let licenseTypeOfProduct = productInformationRef.defaultLicense;
+    let formatTypeOfProduct = productInformationRef.defaultFormat;
     let priceOfProduct = productInformationRef.price.toFixed(2);
     let productData = {
         "product": titleOfProduct,
@@ -70,24 +71,26 @@ function addToShopingCart(i, indexOfProductCard, productCount) {
         "audioFormat": formatTypeOfProduct,
         "price": priceOfProduct,
         "position": [i, indexOfProductCard],
-        "productCount": productCount
+        "productCounter": productCounter
     };
     shopingCart.push(productData);
     console.log(shopingCart);
-    showAddedConfirmation(indexOfProductCard);
-    renderShopingCart(productCount);
+    // renderShopingCart(productCounter);
+    renderShopingCart();
+
+    showAddedConfirmation(i, productsInShopingCart, productCounter);
     // console.log(titleOfProduct);
     // infoForShopingCart.push(titleOfProduct);
     // console.log(infoForShopingCart);
 }
 
 // function showAddedConfirmation(indexOfProductCard, license, format) {
-function showAddedConfirmation(indexOfProductCard) {
-    const BUTTON_OF_PRODUCT = document.getElementById(`idAddToShopingCartButton_${indexOfProductCard}`);
+function showAddedConfirmation(i, indexOfProductCard, productCounter) {
+    const BUTTON_OF_PRODUCT = document.getElementById(`idAddToShopingCartButton_${productCounter}`);
     let currentLicenseIndex = getActualLicenseType(indexOfProductCard);
     let currentFormatIndex = getActualFormatType(indexOfProductCard);
     // BUTTON_OF_PRODUCT.innerHTML = "free/mp3 Added";
-    BUTTON_OF_PRODUCT.innerHTML = `${LICENSES[indexOfProductCard].licenseKey}/ ${AUDIO_FORMATS[currentFormatIndex].formatKey} ADDED`;
+    BUTTON_OF_PRODUCT.innerHTML = `${LICENSES[currentLicenseIndex].licenseKey}/ ${AUDIO_FORMATS[currentFormatIndex].formatKey} ADDED`;
 
     `LICENSES[${currentLicenseIndex}].licenseKey/AUDIO_FORMATS[${currentFormatIndex}].formatKey ADDED`
 }
@@ -126,18 +129,44 @@ function getProductIndex(indexOfProductCard) {
     return PRODUCT_BUTTON_REF.value;
 }
 
-function renderShopingCart(productCount) {
+// function renderShopingCart(productCounter) {
+function renderShopingCart() {
     const PRODUCT_CATEGORYS_WRAPPER_REF = document.getElementById("idProductCategorysWrapper");
-    // PRODUCT_CATEGORYS_WRAPPER_REF.innerHTML = "";
-    PRODUCT_CATEGORYS_WRAPPER_REF.innerHTML += getShopingCartTemplate();
+    const SHOPINC_CART_REF = document.getElementById("idMobileShopingCart");
+    if (SHOPINC_CART_REF !== null) {
+        renderShopingCartContent();
+    }
+    else {
+        // PRODUCT_CATEGORYS_WRAPPER_REF.innerHTML = "";
+        PRODUCT_CATEGORYS_WRAPPER_REF.innerHTML += getShopingCartTemplate();
+        renderShopingCartContent();
+    }
+    // for (let currentProductIndex = 0; currentProductIndex < shopingCart.length; currentProductIndex++) {
+    //     let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+    //     // SHOPING_CART_CURRENT_CONTENT_REF = "";
+    //     SHOPING_CART_CURRENT_CONTENT_REF.innerHTML = renderProductCardForShopingCart(currentProductIndex);
+    //     // SHOPING_CART_CURRENT_CONTENT_REF.innerHTML = renderProductCardForShopingCart(currentProductIndex, productCounter);
+    // }
+}
+
+function renderShopingCartContent() {
+    const SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+    SHOPING_CART_CURRENT_CONTENT_REF.innerHTML = "";
     for (let currentProductIndex = 0; currentProductIndex < shopingCart.length; currentProductIndex++) {
-        let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
-        // SHOPING_CART_CURRENT_CONTENT_REF = "";
-        SHOPING_CART_CURRENT_CONTENT_REF.innerHTML = renderProductCardForShopingCart(currentProductIndex, productCount);
+        SHOPING_CART_CURRENT_CONTENT_REF.innerHTML += renderProductCardForShopingCart(currentProductIndex);
+        // SHOPING_CART_CURRENT_CONTENT_REF.innerHTML += renderProductCardForShopingCart(currentProductIndex, productCounter);
     }
 }
 
-function renderProductCardForShopingCart(currentProductIndex, productCount) {
+// function checkExistenceOfShopingCart(){
+//     const SHOPINC_CART_REF = document.getElementById("idMobileShopingCart");
+//     if(PRODUCT_CATEGORYS_WRAPPER_REF.contains("idMobileShopingCart")){
+//         return true
+//     }
+// }
+
+// function renderProductCardForShopingCart(currentProductIndex, productCounter) {
+function renderProductCardForShopingCart(currentProductIndex) {
     let titleOfProduct = shopingCart[currentProductIndex].product;
     let license = shopingCart[currentProductIndex].licenceType;
     let format = shopingCart[currentProductIndex].audioFormat;
@@ -204,7 +233,7 @@ function decreaseFormatLevel(currentProductIndex) {
 };
 
 function updateAddedButtonContent(currentProductIndex) {
-    let articleButtonNumberRef = shopingCart[currentProductIndex].productCount;
+    let articleButtonNumberRef = shopingCart[currentProductIndex].productCounter;
     const TO_UPDATE_BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${articleButtonNumberRef}`);
     TO_UPDATE_BUTTON_REF.innerHTML = `${shopingCart[currentProductIndex].licenceType} / ${shopingCart[currentProductIndex].audioFormat} ADDED`;
 
@@ -213,28 +242,45 @@ function updateAddedButtonContent(currentProductIndex) {
 
 function decreaseLicense(currentProductIndex) {
     decreaseLicenseLevel(currentProductIndex);
-    changeLicenseDisplay(currentProductIndex)
-    showAddedConfirmation(currentProductIndex)
+    changeLicenseDisplay(currentProductIndex);
+    showAddedConfirmation(...getInfo(currentProductIndex));
     updateAddedButtonContent(currentProductIndex);
 }
 function increaseLicense(currentProductIndex) {
     increaseLicenseLevel(currentProductIndex);
-    changeLicenseDisplay(currentProductIndex)
-    showAddedConfirmation(currentProductIndex)
+    changeLicenseDisplay(currentProductIndex);
+    showAddedConfirmation(...getInfo(currentProductIndex));
     updateAddedButtonContent(currentProductIndex);
 }
 function decreaseFormat(currentProductIndex) {
     decreaseFormatLevel(currentProductIndex);
-    changeFormatDisplay(currentProductIndex)
-    showAddedConfirmation(currentProductIndex)
+    changeFormatDisplay(currentProductIndex);
+    showAddedConfirmation(...getInfo(currentProductIndex));
     updateAddedButtonContent(currentProductIndex);
 }
 function increaseFormat(currentProductIndex) {
+
     increaseFormatLevel(currentProductIndex);
-    changeFormatDisplay(currentProductIndex)
-    showAddedConfirmation(currentProductIndex)
+    changeFormatDisplay(currentProductIndex);
+    showAddedConfirmation(...getInfo(currentProductIndex));
     updateAddedButtonContent(currentProductIndex);
 }
+
+function getInfo(currentProductIndex) {
+    let positiOfOriginalProduct = shopingCart[currentProductIndex].position;
+    let i = positiOfOriginalProduct[0];
+    let indexOfProductCard = positiOfOriginalProduct[1]
+    let productCounter = shopingCart[currentProductIndex].productCounter;
+    return [i, indexOfProductCard, productCounter];
+}
+
+// #region PRICE CALCULATION
+
+// bei add to shoping cart button click
+// price in warenkorb
+// price von warenkorb in subtotal berechrechnung
+// #endregion
+// -------------------------------------------------------------
 
 
 
@@ -248,6 +294,10 @@ function increaseFormat(currentProductIndex) {
 // ==============================================================
 
 // #region BLANCO
+
+// #endregion
+// -------------------------------------------------------------
+// #region PRICE CALCULATION
 
 // #endregion
 // -------------------------------------------------------------
