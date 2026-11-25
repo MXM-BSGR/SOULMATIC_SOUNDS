@@ -27,7 +27,7 @@ function getCategoryTemplate(i) {
         </div>`
 }
 
-function getProductCardTemplate(i, indexOfProductCard, productCounter) {
+function getProductCardTemplate(i, indexOfProductCard, productCount) {
     return html`
         <article id="idProductCard${indexOfProductCard}" class="ProductCard">
             <button type="button" id="idProductCard_$${indexOfProductCard}_PreviewWrapper" class="ProductCardPreviewWrapper">
@@ -43,7 +43,7 @@ function getProductCardTemplate(i, indexOfProductCard, productCounter) {
                 <p id="idProduct_$${indexOfProductCard}_Price" class="ProductPrice">
                     <b>12.90 €</b>
                 </p>
-                <button type="button" id="idAddToShopingCartButton_${indexOfProductCard}" class="AddToShopingCartButton" onclick="addToShopingCart(${i},${indexOfProductCard})" value="${productCounter}">
+                <button type="button" id="idAddToShopingCartButton_${productCount}" class="AddToShopingCartButton" onclick="addToShopingCart(${i},${indexOfProductCard}, ${productCount})" value="${productCount}">
                     Add to Shoping Cart
                 </button>
                 <button type="button" id="idButton_$${indexOfProductCard}_LiveLabeled" class="ButtonLiveLabeled Hide">
@@ -86,7 +86,7 @@ function getShopingCartTemplate() {
 }
 
 
-function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, license, format, priceOfArticle) {
+function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, license, format, priceOfArticle, originalCategoryIndex, originalProductIndex) {
     return html`
         <article id="idShopingCartArticle${currentProductIndex}" class="ShopingCartArticle">
             <div id="idShopingCartArticle${currentProductIndex}Line1Wrapper" class="ShopingCartArticleLine1Wrapper">
@@ -98,9 +98,9 @@ function getShopingCartArticleTemplate(currentProductIndex, titleOfProduct, lice
                 <div id="idLicenseSelectAreaWrapper${currentProductIndex}" class="LicenseSelectAreaWrapper">
                     <label for="idSelectButtons${currentProductIndex}Area1Wrapper" class="LabelSelect License">License</label>
                     <div id="idSelectButtons${currentProductIndex}Area1Wrapper" class="SelectButtonWrapper">
-                        <button type="button" id="idDecreaseLicenseArticle${currentProductIndex}" class="DecreaseLicense" onclick="changeLicense(${currentProductIndex})"></button>
+                        <button type="button" id="idDecreaseLicenseArticle${currentProductIndex}" class="DecreaseLicense" onclick="decreaseLicenseLevel(${currentProductIndex}), changeLicense(${currentProductIndex}), showAddedConfirmation(${currentProductIndex}), updateAddedButtonContent(${currentProductIndex})"></button>
                         <p id="idCurrentLicenseLevelArticle${currentProductIndex}" class="CurrentLicenseLevel">${license}</p>
-                        <button type="button" id="idIncreaseLicenseLevelArticle${currentProductIndex}"class="IncreaseLicenseLevel"></button>
+                        <button type="button" id="idIncreaseLicenseLevelArticle${currentProductIndex}"class="IncreaseLicenseLevel" onclick="increaseLicenseLevel(${currentProductIndex}), changeLicense(${currentProductIndex}), showAddedConfirmation(${currentProductIndex}), updateAddedButtonContent(${currentProductIndex})"></button>
                     </div>
                 </div>
                 <div id="idFormatSelectAreaWrapper${currentProductIndex}" class="FormatSelectAreaWrapper">
