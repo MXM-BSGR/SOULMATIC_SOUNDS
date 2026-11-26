@@ -28,7 +28,7 @@
 <body onload="init()">
     <!-- ------------------------------------------------------------- -->
     <!-- #region  HEADER  -->
-    <header class="MainHeader">
+    <header id="idMainHeader" class="MainHeader">
         <div id="idLogoWrapper" class="LogoWrapper">
             <!-- <img class="HeaderLogo" src="./assets/img/logo.jpg" alt=" dsaf"> -->
             <img class="HeaderLettering" src="./assets/icons/lettering.svg" alt="">
@@ -112,7 +112,7 @@
     <nav id="idMobileNavigation" class="MobileNavigation Show">
         <ul id="idMobileNavigationLinkWrapper" class="MobileNavigationLinkWrapper Show">
             <li id="idMobileNavigationLinkHome" class="MobileNavigationLinkHome">
-                <a id="idLinkToHome" class="MobileNavigationLink">
+                <a id="idLinkToHome" class="MobileNavigationLink" href="#idMainHeader">
                     <button id="idHomeButton" type="button" class="MobileNavigationButton">
                         <img id="idHomeIcon" class="HomeIcon" src="./assets/icons/home-button.svg" alt="house icon">
                     </button>
@@ -137,7 +137,7 @@
             <li id="idMobileNavigationShopingCartLink" class="MobileNavigationLinkHome">
                 <a id="" class="MobileNavigationLink">
                     <button type="button" id="idShopingCartButton" class="MobileNavigationButton ShopingCartButton"
-                        onclick="openShopingCart()" data-clicked="false">
+                        onclick="toggleShopingCart()" data-clicked="false">
                         <img src="./assets/icons/shoping-trolley.svg" alt="shoping trolley icon">
                         <p id="idCurrentShopingCartContent" class="CurrentShopingCartContent">1</p>
                     </button>
