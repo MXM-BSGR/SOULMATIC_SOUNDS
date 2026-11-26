@@ -12,8 +12,6 @@
             background-size: cover;
         }
 
-        .ProductCategorysWrapper {}
-
         .ProductCategoryHeading {
             width: 100%;
         }
@@ -21,7 +19,7 @@
         .CategoryCardWrapper {
             display: flex;
 
-            height: 200dvh;
+            height: 120dvh;
         }
 
         .MobileShopingCart {
