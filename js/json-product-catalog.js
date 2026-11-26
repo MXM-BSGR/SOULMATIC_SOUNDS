@@ -3,7 +3,7 @@ const LICENSES = [
     {
         "licenseKey": "free",
         "title": "Free / Non-Profit",
-        "price": 0.00,
+        "extraPrice": 0.00,
         "description": "For personal projects, demos, and non-monetized uploads (e.g., SoundCloud or YouTube without ads). Credit required.",
         "features": [
             "Personal & non-commercial use only",
@@ -14,7 +14,7 @@ const LICENSES = [
     {
         "licenseKey": "basic",
         "title": "Basic Lease",
-        "price": 14.90,
+        "extraPrice": 14.90,
         "description": "Ideal for independent releases on Spotify, Apple Music, and YouTube with limited reach.",
         "features": [
             "Commercial use permitted",
@@ -25,7 +25,7 @@ const LICENSES = [
     {
         "licenseKey": "pro",
         "title": "Pro Unlimited",
-        "price": 29.90,
+        "extraPrice": 29.90,
         "description": "For professional releases without stream caps, including all trackout stems for mixing.",
         "features": [
             "Unlimited streams & sales",
@@ -36,7 +36,7 @@ const LICENSES = [
     {
         "licenseKey": "exclusive",
         "title": "Exclusive Rights",
-        "price": 99.00,
+        "extraPrice": 99.00,
         "description": "Full commercial exploitation rights without limits. The loop will be permanently removed from the store after purchase.",
         "features": [
             "Unlimited worldwide commercial rights",
