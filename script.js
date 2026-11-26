@@ -15,6 +15,7 @@
 
 function init() {
     renderProducts();
+    updateShopingCartBadge();
 }
 
 function renderProducts() {
@@ -86,6 +87,7 @@ function addToShopingCart(i, indexOfProductCard, productCounter) {
     showAddedConfirmation(i, indexOfProductCard, productCounter, productsInShopingCart);
     calculateSubTotalPrice();
     calculateTotalPrice();
+    updateShopingCartBadge();
     // console.log(titleOfProduct);
     // infoForShopingCart.push(titleOfProduct);
     // console.log(infoForShopingCart);
@@ -344,7 +346,90 @@ function deleteObjectOfDesire(toDeleteProductIndex) {
     // const PRODUCT_REF = shopingCart[1].objectsOfDesire[toDeleteProductIndex];
     shopingCart[1].objectsOfDesire.splice(toDeleteProductIndex, 1);
     renderShopingCartContent();
+    updateShopingCartBadge();
 
+
+}
+
+// function openShopingCart() {
+//     let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
+//     let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+//     if (SHOPING_CART_REF == null || SHOPING_CART_REF.contains("idEmptyShopingCartMessage")) {
+//         renderEmptyShopingCart();
+//     }
+//     else {
+//         renderShopingCart();
+//         SHOPING_CART_REF.classList.toggle("Hide");
+//         SHOPING_CART_REF.classList.toggle("MobileShopingCart");
+//         // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
+//         SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("EmptyShopingCartInnerContent");
+//     }
+
+// }
+function openShopingCart() {
+    let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
+    let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+    let SHOPING_CART_BUTTON_REF = document.getElementById("idShopingCartButton");
+    let isClicked = SHOPING_CART_BUTTON_REF.dataset.clicked === "true";
+    if (SHOPING_CART_REF === null) {
+        renderEmptyShopingCart();
+        SHOPING_CART_BUTTON_REF.dataset.clicked = "true";
+
+    } else if (SHOPING_CART_REF !== null && shopingCart[1].objectsOfDesire.length === 0) {
+        // renderEmptyShopingCart();
+        SHOPING_CART_REF.classList.toggle("Hide");
+        SHOPING_CART_REF.classList.toggle("MobileShopingCart");
+    }
+    else if (isClicked) {
+        SHOPING_CART_REF.classList.toggle("MobileShopingCart");
+    }
+    else {
+        renderShopingCart();
+        SHOPING_CART_REF.classList.toggle("MobileShopingCart");
+        SHOPING_CART_CURRENT_CONTENT_REF.classList.remove("EmptyShopingCartInnerContent");
+
+        SHOPING_CART_REF.classList.add("MobileShopingCart");
+        // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
+    }
+
+}
+
+
+function renderEmptyShopingCart() {
+    const ALLCATEGORIES_REF = document.getElementById("idAllCategories");
+    let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+    ALLCATEGORIES_REF.innerHTML += getEmptyShopingCartTemplate();
+    SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
+    SHOPING_CART_REF.classList.toggle("Hide");
+    SHOPING_CART_REF.classList.toggle("MobileShopingCart");
+    SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
+    SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
+    SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("EmptyShopingCartInnerContent");
+
+
+}
+
+function updateShopingCartBadge() {
+    const SHOPING_CART_BADGE_REF = document.getElementById("idCurrentShopingCartContent");
+    let amountOfProductsInShopingCart = shopingCart[1].objectsOfDesire.length;
+    if (amountOfProductsInShopingCart === 0) {
+
+        // SHOPING_CART_BADGE_REF.innerHTML = "";
+        // SHOPING_CART_BADGE_REF.classList.add("Hide");
+        SHOPING_CART_BADGE_REF.classList.toggle("Hide");
+        SHOPING_CART_BADGE_REF.classList.toggle("CurrentShopingCartContent");
+    }
+    else {
+
+        SHOPING_CART_BADGE_REF.classList.remove("Hide");
+        SHOPING_CART_BADGE_REF.classList.add("CurrentShopingCartContent");
+        SHOPING_CART_BADGE_REF.innerHTML = shopingCart[1].objectsOfDesire.length;
+    }
+}
+
+
+function closeShopingCart() {
+    const CLOSE_BUTTON_REF = document.getElementById("MobileDialogCloseBtn");
 
 }
 // #endregion
