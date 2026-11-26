@@ -1,12 +1,14 @@
     /* ============================================================== */
+
     /* GENERAL CSS */
+
     /* ============================================================== */
 
     * {
         box-sizing: border-box;
         margin: 0;
-        font-family: var(--primary-font);
         scroll-behavior: smooth;
+        font-family: var(--primary-font);
     }
 
     html {
@@ -17,16 +19,16 @@
     body {
         display: flex;
         flex-direction: column;
-        background-color: rgb(49, 49, 49);
+        background-color: rgb(49 49 49);
         min-height: 100dvh;
     }
 
     main {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         gap: 2rem;
+        align-items: center;
+        justify-content: center;
         width: 100%;
     }
 
@@ -44,11 +46,9 @@
     h4,
     h5,
     h6 {
-        font-family: var(--heading-font);
         letter-spacing: 0.05rem;
+        font-family: var(--heading-font);
     }
-
-
 
     /* ============================================================== */
 
@@ -56,4 +56,5 @@
     /* #region BLANCO */
 
     /* #endregion */
+
     /* ------------------------------------------------------------- */
