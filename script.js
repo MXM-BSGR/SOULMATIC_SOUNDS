@@ -22,7 +22,6 @@ function renderProducts() {
     const ALL_CATEGORIES_REF = document.getElementById("idAllCategories");
     let productCounter = 0;
     ALL_CATEGORIES_REF.innerHTML = "";
-
     for (let i = 0; i < loopCatalog.length; i++) {
         ALL_CATEGORIES_REF.innerHTML += getCategoryTemplate(i);
         productCounter = renderProductCards(i, productCounter);
@@ -31,27 +30,12 @@ function renderProducts() {
 
 function renderProductCards(i, productCounter) {
     let productCardsWrapperRef = document.getElementById(`idProductCardsCategory_${i}_Wrapper`);
-
     for (let indexOfProductCard = 0; indexOfProductCard < loopCatalog[i].loops.length; indexOfProductCard++) {
         productCardsWrapperRef.innerHTML += getProductCardTemplate(i, indexOfProductCard, productCounter);
         productCounter++;
     }
     return productCounter;
 }
-
-
-
-// function renderProductContent(i, indexOfProductCard) {
-//     const PRODUCT_CONTENT_REF = document.getElementById("idProduct_${indexOfProductCard}_Content");
-
-//     let pathToContent = "loopCatalog[i].loops[indexOfProductCard].includedSamples";
-
-//     for (let currentContentIndex = 0; currentContentIndex > pathToContent.length; currentContentIndex++) {
-//         console.log(loopCatalog[i].loops[indexOfProductCard].includedSamples.length);
-//     }
-// }
-
-// #region SHOPING CART
 
 function addToShopingCart(i, indexOfProductCard, productCounter) {
     const BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${productCounter}`);
@@ -68,43 +52,29 @@ function addToShopingCart(i, indexOfProductCard, productCounter) {
         let formatTypeOfProduct = productInformationRef.defaultFormat;
         let priceOfProduct = productInformationRef.price.toFixed(2);
         let productData = {
-            // [`product_${productsInShopingCart}_InShopingCart`]: {
-
             "title": titleOfProduct,
             "licenceType": licenseTypeOfProduct,
             "audioFormat": formatTypeOfProduct,
             "price": priceOfProduct,
             "position": [i, indexOfProductCard],
             "productCounter": productCounter
-            // }
         };
         BUTTON_REF.dataset.condition = "added";
         shopingCart[1].objectsOfDesire.push(productData);
         console.log(shopingCart[1].objectsOfDesire);
-        // renderShopingCart(productCounter);
         renderShopingCart(i, indexOfProductCard);
-
         showAddedConfirmation(i, indexOfProductCard, productCounter, productsInShopingCart);
         calculateSubTotalPrice();
         calculateTotalPrice();
         updateShopingCartBadge();
-        // console.log(titleOfProduct);
-        // infoForShopingCart.push(titleOfProduct);
-        // console.log(infoForShopingCart);
     }
 };
 
 function showAddedConfirmation(i, indexOfProductCard, productCounter, currentProductIndexInShopingCart) {
     const BUTTON_OF_PRODUCT = document.getElementById(`idAddToShopingCartButton_${productCounter}`);
-
     let currentLicenseIndex = getActualLicenseType(currentProductIndexInShopingCart);
     let currentFormatIndex = getActualFormatType(currentProductIndexInShopingCart);
-    // BUTTON_OF_PRODUCT.innerHTML = "free/mp3 Added";
     BUTTON_OF_PRODUCT.innerHTML = `${AUDIO_FORMATS[currentFormatIndex].formatKey}/ ${LICENSES[currentLicenseIndex].licenseKey} ADDED`;
-
-
-
-
 }
 
 function getActualLicenseType(indexOfProductCard) {
@@ -135,25 +105,19 @@ function getActualFormatType(indexOfProductCard) {
 
 function getProductIndex(indexOfProductCard) {
     const PRODUCT_BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${indexOfProductCard}`);
-    // console.log(PRODUCT_BUTTON_REF.value);
     return PRODUCT_BUTTON_REF.value;
 }
 
-// function renderShopingCart(productCounter) {
 function renderShopingCart(i, indexOfProductCard) {
     const PRODUCT_CATEGORYS_WRAPPER_REF = document.getElementById("idProductCategorysWrapper");
     let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
-
     if (SHOPING_CART_REF !== null && SHOPING_CART_REF.classList.contains("EmptyShopingCartInnerContent")) {
         SHOPING_CART_REF.remove();
         SHOPING_CART_REF = null;
     }
-
     if (SHOPING_CART_REF === null) {
         PRODUCT_CATEGORYS_WRAPPER_REF.innerHTML += getShopingCartTemplate();
-
     }
-
     renderShopingCartContent(i, indexOfProductCard);
     showTotalPriceOnButton();
 }
@@ -163,18 +127,9 @@ function renderShopingCartContent() {
     SHOPING_CART_CURRENT_CONTENT_REF.innerHTML = "";
     for (let currentProductIndex = 0; currentProductIndex < shopingCart[1].objectsOfDesire.length; currentProductIndex++) {
         SHOPING_CART_CURRENT_CONTENT_REF.innerHTML += renderProductCardForShopingCart(currentProductIndex);
-        // SHOPING_CART_CURRENT_CONTENT_REF.innerHTML += renderProductCardForShopingCart(currentProductIndex, productCounter);
     }
 }
 
-// function checkExistenceOfShopingCart(){
-//     const SHOPINC_CART_REF = document.getElementById("idMobileShopingCart");
-//     if(PRODUCT_CATEGORYS_WRAPPER_REF.contains("idMobileShopingCart")){
-//         return true
-//     }
-// }
-
-// function renderProductCardForShopingCart(currentProductIndex, productCounter) {
 function renderProductCardForShopingCart(currentProductIndex) {
     let titleOfProduct = shopingCart[1].objectsOfDesire[currentProductIndex].title;
     let license = shopingCart[1].objectsOfDesire[currentProductIndex].licenceType;
@@ -209,9 +164,6 @@ function increaseLicenseLevel(currentProductIndex) {
         shopingCart[1].objectsOfDesire[currentProductIndex].licenceType = `${LICENSES[currentLicense].licenseKey}`;
     }
     return currentProductIndex;
-    // let positiOfOriginalProduct = shopingCart[currentProductIndex].position;
-    // console.log(positiOfOriginalProduct);
-    // return positiOfOriginalProduct;
 };
 
 function increaseFormatLevel(currentProductIndex) {
@@ -221,9 +173,6 @@ function increaseFormatLevel(currentProductIndex) {
         shopingCart[1].objectsOfDesire[currentProductIndex].audioFormat = `${AUDIO_FORMATS[currentFormat].formatKey}`;
     }
     return currentProductIndex;
-    // let positiOfOriginalProduct = shopingCart[currentProductIndex].position;
-    // console.log(positiOfOriginalProduct);
-    // return positiOfOriginalProduct;
 };
 
 function decreaseLicenseLevel(currentProductIndex) {
@@ -253,20 +202,17 @@ function updateAddedButtonContent(currentProductIndex) {
     let articleButtonNumberRef = shopingCart[1].objectsOfDesire[currentProductIndex].productCounter;
     const TO_UPDATE_BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${articleButtonNumberRef}`);
     TO_UPDATE_BUTTON_REF.innerHTML = `${shopingCart[1].objectsOfDesire[currentProductIndex].licenceType} / ${shopingCart[1].objectsOfDesire[currentProductIndex].audioFormat} ADDED`;
-
 }
 
 function updateAddedButtonContent(currentProductIndex, isDeleted = false) {
     let articleButtonNumberRef = shopingCart[1].objectsOfDesire[currentProductIndex].productCounter;
     const TO_UPDATE_BUTTON_REF = document.getElementById(`idAddToShopingCartButton_${articleButtonNumberRef}`);
-
     if (isDeleted) {
         TO_UPDATE_BUTTON_REF.innerHTML = "Add to Shoping Cart";
     } else {
         TO_UPDATE_BUTTON_REF.innerHTML = `${shopingCart[1].objectsOfDesire[currentProductIndex].licenceType} / ${shopingCart[1].objectsOfDesire[currentProductIndex].audioFormat} ADDED`;
     }
 }
-
 
 function decreaseLicense(currentProductIndex) {
     decreaseLicenseLevel(currentProductIndex);
@@ -290,7 +236,6 @@ function decreaseFormat(currentProductIndex) {
 }
 
 function increaseFormat(currentProductIndex) {
-
     increaseFormatLevel(currentProductIndex);
     changeFormatDisplay(currentProductIndex);
     showAddedConfirmation(...getInfo(currentProductIndex));
@@ -310,36 +255,29 @@ function getInfo(currentProductIndex) {
 // bei add to shoping cart button click
 // price in warenkorb
 // price von warenkorb in subtotal berechrechnung
-
 function calculateSubTotalPrice() {
     // if Abfrage rein
     const SUB_TOTAL_PRICE_REF = document.getElementById("idSubtotalPrice");
     let result = 0;
     for (let article = 0; article < shopingCart[1].objectsOfDesire.length; article++) {
         let price = Number(shopingCart[1].objectsOfDesire[article].price);
-
         result += price;
-
     }
     SUB_TOTAL_PRICE_REF.innerHTML = `${result.toFixed(2).replace(".", ",")} €`;
 }
 
-function chooseKindOfDelivery() {
-
-}
+// function chooseKindOfDelivery() {
+// }
 
 function calculateTotalPrice() {
     const TOTAL_PRICE_REF = document.getElementById("idTotalPrice");
     let result = 0;
     for (let article = 0; article < shopingCart[1].objectsOfDesire.length; article++) {
         let price = Number(shopingCart[1].objectsOfDesire[article].price);
-
         result += price;
-
     }
     TOTAL_PRICE_REF.innerHTML = `${result.toFixed(2).replace(".", ",")} €`;
     return result;
-
 }
 
 function showTotalPriceOnButton() {
@@ -347,27 +285,22 @@ function showTotalPriceOnButton() {
     PURCHASE_CONFIRM_BUTTON_REF.innerHTML = "";
     let shownButtonPrice = Number(calculateTotalPrice()).toFixed(2);
     PURCHASE_CONFIRM_BUTTON_REF.innerHTML = `BUY NOW ${shownButtonPrice} €`;
-
 }
 
 function getCartIndexByCatalogPosition(categoryIndex, productIndex) {
     const cartItems = shopingCart[1].objectsOfDesire;
-
     for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].position[0] === categoryIndex && cartItems[i].position[1] === productIndex) {
             return i;
         }
     }
-
     return -1;
 }
 
-// function deleteObjectOfDesire(toDeleteProductIndex, productCounter) {
 function deleteObjectOfDesire(toDeleteProductIndex) {
     updateAddedButtonContent(toDeleteProductIndex, true);
     shopingCart[1].objectsOfDesire.splice(toDeleteProductIndex, 1);
     updateShopingCartBadge();
-
     if (shopingCart[1].objectsOfDesire.length === 0) {
         const SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
         if (SHOPING_CART_REF) {
@@ -379,74 +312,20 @@ function deleteObjectOfDesire(toDeleteProductIndex) {
         calculateSubTotalPrice();
         calculateTotalPrice();
         showTotalPriceOnButton();
-
     }
 }
-
-// function openShopingCart() {
-//     let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
-//     let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
-//     if (SHOPING_CART_REF == null || SHOPING_CART_REF.contains("idEmptyShopingCartMessage")) {
-//         renderEmptyShopingCart();
-//     }
-//     else {
-//         renderShopingCart();
-//         SHOPING_CART_REF.classList.toggle("Hide");
-//         SHOPING_CART_REF.classList.toggle("MobileShopingCart");
-//         // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
-//         SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("EmptyShopingCartInnerContent");
-//     }
-
-// }
-// function openShopingCart() {
-//     let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
-//     let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
-//     let SHOPING_CART_BUTTON_REF = document.getElementById("idShopingCartButton");
-//     let isClicked = SHOPING_CART_BUTTON_REF.dataset.clicked === "true";
-//     if (SHOPING_CART_REF === null) {
-//         renderEmptyShopingCart();
-//         SHOPING_CART_BUTTON_REF.dataset.clicked = "true";
-
-//     } else if (SHOPING_CART_REF !== null && shopingCart[1].objectsOfDesire.length === 0) {
-//         // renderEmptyShopingCart();
-//         SHOPING_CART_REF.classList.toggle("Hide");
-//         SHOPING_CART_REF.classList.toggle("MobileShopingCart");
-//     }
-//     else if (isClicked) {
-//         SHOPING_CART_REF.classList.toggle("MobileShopingCart");
-//     }
-//     else {
-//         renderShopingCart();
-//         SHOPING_CART_REF.classList.toggle("MobileShopingCart");
-//         SHOPING_CART_CURRENT_CONTENT_REF.classList.remove("EmptyShopingCartInnerContent");
-
-//         SHOPING_CART_REF.classList.add("MobileShopingCart");
-//         // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
-//     }
-
-// }
-
 
 function renderEmptyShopingCart() {
     const ALLCATEGORIES_REF = document.getElementById("idAllCategories");
     let SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
     ALLCATEGORIES_REF.innerHTML += getEmptyShopingCartTemplate();
     SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
-    // SHOPING_CART_REF.classList.toggle("Hide");
-    // SHOPING_CART_REF.classList.toggle("MobileShopingCart");
-    // SHOPING_CART_CURRENT_CONTENT_REF = document.getElementById("idShopingCartCurrentContent");
-    // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("ShopingCartCurrentContent");
-    // SHOPING_CART_CURRENT_CONTENT_REF.classList.toggle("EmptyShopingCartInnerContent");
-
-
 }
 
 function updateShopingCartBadge() {
     const SHOPING_CART_BADGE_REF = document.getElementById("idCurrentShopingCartContent");
     const amountOfProductsInShopingCart = shopingCart[1].objectsOfDesire.length;
-
     if (!SHOPING_CART_BADGE_REF) return;
-
     if (amountOfProductsInShopingCart === 0) {
         SHOPING_CART_BADGE_REF.classList.add("Hide");
         SHOPING_CART_BADGE_REF.innerHTML = "0";
@@ -460,7 +339,6 @@ function updateShopingCartBadge() {
 function closeShopingCart() {
     const SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
     const SHOPING_CART_BUTTON_REF = document.getElementById("idShopingCartButton");
-
     if (SHOPING_CART_REF) {
         SHOPING_CART_REF.classList.add("Hide");
     }
@@ -473,7 +351,6 @@ function toggleShopingCart() {
     let SHOPING_CART_REF = document.getElementById("idMobileShopingCart");
     const SHOPING_CART_BUTTON_REF = document.getElementById("idShopingCartButton");
     const hasItems = shopingCart[1].objectsOfDesire.length > 0;
-
     if (SHOPING_CART_REF === null) {
         if (hasItems) {
             renderShopingCart();
@@ -486,9 +363,7 @@ function toggleShopingCart() {
         }
         return;
     }
-
     const isHidden = SHOPING_CART_REF.classList.contains("Hide");
-
     if (isHidden) {
         SHOPING_CART_REF.classList.remove("Hide");
         SHOPING_CART_REF.classList.add("MobileShopingCart");
@@ -515,13 +390,6 @@ function closeShopingCartModal() {
             SHOPING_CART_REF.classList.remove("MobileShopingCart");
         }
     }
-
-    // SHOPING_CART_REF.classList.add("Hide");
-    // SHOPING_CART_REF.classList.remove("MobileShopingCart");
-}
-
-function increasePrice() {
-
 }
 
 function increaseArticlePrice(currentProductIndex) {
@@ -608,10 +476,7 @@ function showOrderConfirmationModal() {
 }
 function closeOrderConfirmationModal() {
     const CONFIRMATION_MODAL = document.getElementById("idSentConfirmationModal");
-
     if (CONFIRMATION_MODAL) {
-        // CONFIRMATION_MODAL.remove();
-        // toggleShopingCart();
         location.reload();
     }
 }
@@ -619,8 +484,6 @@ function closeOrderConfirmationModal() {
 function eventprevention(event) {
     event.stopPropagation();
 }
-
-
 
 // #endregion
 // -------------------------------------------------------------
@@ -637,10 +500,6 @@ function eventprevention(event) {
 // ==============================================================
 
 // #region BLANCO
-
-// #endregion
-// -------------------------------------------------------------
-// #region PRICE CALCULATION
 
 // #endregion
 // -------------------------------------------------------------
