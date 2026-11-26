@@ -1,18 +1,3 @@
-
-// function trylog() {
-//     let imageID = "idMeatal0";
-
-//     let i = 0;
-//     let imagesLoopIndex = 0;
-
-//     console.log(LOOP_IMAGES[i].imageID[imagesLoopIndex].imagesPath);
-//     LOOP_IMAGES[0].idMetal0[0].imagePath
-// }
-
-// <img id="idProductCardBackgroundImage" class="ProductCardBackgroundImage"  
-// src="${LOOP_IMAGES[${i}].${imageID}[${indexOfProductCard}]imagesPath}" alt=""></img>
-
-
 const LOOP_IMAGES = [
     {
         "idMetal0": [
