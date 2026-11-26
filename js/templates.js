@@ -7,8 +7,6 @@ const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
 // (ermöglicht HTML-Formatierung, Syntax-Highlighting und Autovervollständigung in JS-Dateien).
 // Ohne diese Definition würde das "html"-Tag vor den Backticks einen ReferenceError auslösen.
 
-
-
 //#region BLANCO
 
 function getCategoryTemplate(i) {
@@ -56,7 +54,6 @@ function getShopingCartTemplate() {
             <button type="button" id="idMobileDialogCloseBtn" class="MobileDialogCloseBtn" onclick="closeShopingCart()"></button>
             <h2 id="idMobileShopingCartHeading" class="MobileShopingCartHeading"> Ur Shoping Cart</h2>
             <section id="idShopingCartCurrentContent" class="ShopingCartCurrentContent"></section>
-
             <img id="idShopingCartIcon" class="ShopingCartIcon Hide" src="./assets/icons/shoping-trolley.svg"
                 alt="shoping cart icon">
             <div>
@@ -64,7 +61,6 @@ function getShopingCartTemplate() {
                 <button type="button">Instant Download</button>
                 <button type="button">Hardware</button>
             </div>
-
             <table id="idShopingCartPriceCalculation" class="ShopingCartPriceCalculation">
                 <tr id="idSubTotalData" class="Hide">
                     <th id="idTableHeading0" class="TableHeading">Subtotal</th>
@@ -79,7 +75,6 @@ function getShopingCartTemplate() {
                     <td id="idTotalPrice">x,xx €</td>
                 </tr>
             </table>
-
             <button type="button" id="idPurchaseConfirmButton" class="PurchaseConfirmButton" onclick="renderOrderConfirmationModal()">
                 <b>Buy now (x,xx €)</b>
             </button>
