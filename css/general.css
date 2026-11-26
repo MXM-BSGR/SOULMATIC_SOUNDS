@@ -6,6 +6,7 @@
         box-sizing: border-box;
         margin: 0;
         font-family: var(--primary-font);
+        scroll-behavior: smooth;
     }
 
     html {
@@ -34,7 +35,7 @@
     }
 
     .Hide {
-        display: none;
+        display: none !important;
     }
 
     h1,
